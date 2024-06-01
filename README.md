@@ -1,6 +1,6 @@
 # flutter_template
 
-This is a template project struct.
+This is a template project structure.
 
 ## Getting Started
 
