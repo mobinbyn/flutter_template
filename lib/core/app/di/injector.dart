@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'index.dart';
 
 final locator = GetIt.instance;
 
@@ -6,6 +7,11 @@ Future<void> initAppModule() async {
   //********************************************************************
   //* Core Group
   // *******************************************************************/
+  /// State manager
+  locator.registerSingleton(OverlayStateManager<LoadingManger>(
+      AppConstant.globalNavigatorKey, LoadingManger()));
+  locator.registerSingleton(OverlayStateManager<ErrorManger>(
+      AppConstant.globalNavigatorKey, ErrorManger()));
 
   // TODO: The template value
   /// Shared Preferences

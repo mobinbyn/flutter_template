@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../app/res/const/app_constant.dart';
 import '../../../app/res/theme/app_theme.dart';
 import '../../../app/routes/app_routes.dart';
 import '../../../app/routes/routes.dart';
@@ -11,6 +12,7 @@ class MainWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: AppConstant.globalNavigatorKey,
       onGenerateRoute: _routeGenerator.getRoute,
       initialRoute: AppRoutes.splashRoute,
       builder: (BuildContext context, Widget? child) {
