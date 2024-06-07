@@ -12,6 +12,10 @@ class ErrorHandler implements Exception {
     if (error is DioException) {
       // Dio error so its error from response of the API
       failure = _handleError(error);
+    } else if (error is ErrorHandler) {
+      failure = error.failure.code == ResponseCode.noInternetConnection
+          ? failure
+          : DataSource.defaultError.getFailure();
     } else {
       failure = DataSource.defaultError.getFailure();
     }

@@ -1,6 +1,5 @@
 [] add some page for testing theme
 [] add generic dio handler
-[] add generic error handler
 [] add generic cubit for handle text field errors
 [] auth feater -> bloc, usecase repository
 
