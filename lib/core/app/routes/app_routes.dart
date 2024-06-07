@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_template/core/app/res/strings/app_strings.dart';
+import 'index.dart';
 
 class RouteGenerator {
   Route<dynamic> getRoute(RouteSettings routeSettings) {

@@ -1,0 +1,11 @@
+abstract class Usecase<Type, Param> {
+  Future<Type> call(Param param);
+}
+
+abstract class UsecaseTwoParams<Type, Param1, Param2> {
+  Future<Type> call(Param1 param1, Param2 param2);
+}
+
+abstract class UsecaseThreeParams<Type, Param1, Param2, Param3> {
+  Future<Type> call(Param1 param1, Param2 param2, Param3 param3);
+}

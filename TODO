@@ -2,8 +2,10 @@
 [] add generic dio handler
 [] add generic error handler
 [] add generic cubit for handle text field errors
+[] change import lib absloutly
+[] either package
+[] auth feater -> bloc, usecase repository
 
 [] side ui effect for loading and error / handle state in build function more easily with state render class
-[] auth bloc
 
 // TODO: List for start your new project

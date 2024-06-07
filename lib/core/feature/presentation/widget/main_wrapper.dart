@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_template/core/app/res/theme/app_theme.dart';
-import 'package:flutter_template/core/app/routes/app_routes.dart';
-import 'package:flutter_template/core/app/routes/routes.dart';
+import '../../../app/res/theme/app_theme.dart';
+import '../../../app/routes/app_routes.dart';
+import '../../../app/routes/routes.dart';
 
 class MainWrapper extends StatelessWidget {
   final RouteGenerator _routeGenerator = RouteGenerator();

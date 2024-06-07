@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/app/res/const/app_font.dart';
-import 'package:flutter_template/core/app/res/theme/app_button_theme.dart';
-import 'package:flutter_template/core/app/res/theme/app_input_theme.dart';
-import 'package:flutter_template/core/app/res/theme/app_palettes.dart';
-import 'package:flutter_template/core/app/res/theme/app_text_style.dart';
+import '../const/app_font.dart';
+import 'app_button_theme.dart';
+import 'app_input_theme.dart';
+import 'app_palettes.dart';
+import 'app_text_style.dart';
 
 // TODO: The template value
 class AppThemes {
