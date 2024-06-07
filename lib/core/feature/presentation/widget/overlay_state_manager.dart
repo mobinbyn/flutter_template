@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/core/feature/presentation/widget/failed_overlay.dart';
+import 'package:flutter_template/core/feature/presentation/widget/loading_overlay.dart';
 import '../../domain/entity/state_manager.dart';
 
 /// Example to use in bloc
@@ -27,9 +29,15 @@ class OverlayStateManager<T extends StateManager> {
 
   void _onStateChanged(bool isShow) {
     if (isShow) {
-      // TODO: show your loading dialog, showDialog(...)
+      if (T is LoadingStateManger) {
+        showLoadingDialog(_globalContext);
+      } else if (T is FailedStateManger) {
+        showFailedDialog(_globalContext);
+      }
     } else {
       // TODO: hide your dialog using the navigation lib in you app
+      if (T is LoadingStateManger) {
+      } else if (T is FailedStateManger) {}
     }
   }
 }

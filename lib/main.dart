@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/feature/domain/entity/state_manager.dart';
-import 'package:flutter_template/core/feature/presentation/widget/overlay_state_manager.dart';
+import 'core/feature/domain/entity/state_manager.dart';
+import 'core/feature/presentation/widget/overlay_state_manager.dart';
 import 'core/app/di/injector.dart';
 import 'core/feature/presentation/widget/main_wrapper.dart';
 
@@ -12,8 +12,8 @@ void main() async {
   ]);
 
   // Init Loading and error state manger
-  locator<OverlayStateManager<LoadingManger>>().init();
-  locator<OverlayStateManager<ErrorManger>>().init();
+  locator<OverlayStateManager<LoadingStateManger>>().init();
+  locator<OverlayStateManager<FailedStateManger>>().init();
 
   runApp(MainWrapper());
 }

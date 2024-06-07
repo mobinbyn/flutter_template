@@ -1,7 +1,7 @@
 import 'dart:async';
 
 /// Manages the application state
-/// The actual ui will be shown/hidden in [DialogManager]
+/// The actual ui will be shown/hidden in [OverlayStateManager]
 abstract class StateManager {
   final _stateStreamController = StreamController<bool>();
 
@@ -16,6 +16,6 @@ abstract class StateManager {
   }
 }
 
-class LoadingManger extends StateManager {}
+class LoadingStateManger extends StateManager {}
 
-class ErrorManger extends StateManager {}
+class FailedStateManger extends StateManager {}

@@ -8,10 +8,10 @@ Future<void> initAppModule() async {
   //* Core Group
   // *******************************************************************/
   /// State manager
-  locator.registerSingleton(OverlayStateManager<LoadingManger>(
-      AppConstant.globalNavigatorKey, LoadingManger()));
-  locator.registerSingleton(OverlayStateManager<ErrorManger>(
-      AppConstant.globalNavigatorKey, ErrorManger()));
+  locator.registerSingleton(OverlayStateManager<LoadingStateManger>(
+      AppConstant.globalNavigatorKey, LoadingStateManger()));
+  locator.registerSingleton(OverlayStateManager<FailedStateManger>(
+      AppConstant.globalNavigatorKey, FailedStateManger()));
 
   // TODO: The template value
   /// Shared Preferences
