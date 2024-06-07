@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/feature/presentation/widget/failed_overlay.dart';
-import 'package:flutter_template/core/feature/presentation/widget/loading_overlay.dart';
+
 import '../../domain/entity/state_manager.dart';
+import 'failed_overlay.dart';
+import 'loading_overlay.dart';
 
 /// Example to use in bloc
 // void login() async {
