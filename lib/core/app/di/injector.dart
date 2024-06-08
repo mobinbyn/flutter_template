@@ -1,3 +1,4 @@
+import 'package:flutter_template/core/feature/data/data_source/remote/dio_factory.dart';
 import 'package:get_it/get_it.dart';
 import 'index.dart';
 
@@ -7,25 +8,21 @@ Future<void> initAppModule() async {
   //********************************************************************
   //* Core Group
   // *******************************************************************/
-  /// State manager
-  locator.registerSingleton(OverlayStateManager<LoadingStateManger>(
-      AppConstant.globalNavigatorKey, LoadingStateManger()));
-  locator.registerSingleton(OverlayStateManager<FailedStateManger>(
-      AppConstant.globalNavigatorKey, FailedStateManger()));
-
   // TODO: The template value
   /// Shared Preferences
   // final sharedPreferences = await SharedPreferences.getInstance();
   // locator.registerSingleton<SharedPreferences>(sharedPreferences);
   // locator.registerSingleton<AppPreferences>(AppPreferences(locator()));
 
-  /// Network info
-  // locator.registerSingleton<NetworkInfo>(NetworkInfoImpl(Connectivity()));
+  /// State manager
+  locator.registerSingleton(OverlayStateManager<LoadingStateManger>(
+      AppConstant.globalNavigatorKey, LoadingStateManger()));
+  locator.registerSingleton(OverlayStateManager<FailedStateManger>(
+      AppConstant.globalNavigatorKey, FailedStateManger()));
 
   /// Dio factory
-  // locator.registerSingleton<DioFactory>(DioFactory(locator()));
+  locator.registerSingleton<DioFactory>(DioFactory());
 
-  /// Network service
-  // locator
-  // .registerSingleton<NetworkService>(NetworkService(locator(), locator()));
+  /// Network info
+  // locator.registerSingleton<NetworkInfo>(NetworkInfoImpl(Connectivity()));
 }
