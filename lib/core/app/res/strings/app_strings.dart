@@ -33,4 +33,6 @@ class AppStrings {
   static const String cacheErrorSubMsg = 'cache_error_sub_msg';
   static const String noInternetErrorSubMsg = 'no_internet_error_sub_msg';
   static const String badCertificateSubMsg = 'bad_certificate_sub_msg';
+  static const String networkAuthenticationRequired =
+      'networkAuthenticationRequired';
 }

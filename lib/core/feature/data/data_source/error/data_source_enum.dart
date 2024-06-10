@@ -13,5 +13,6 @@ enum DataSource {
   cacheError,
   badCertificate,
   noInternetConnection,
+  networkAuthenticationRequired,
   defaultError
 }

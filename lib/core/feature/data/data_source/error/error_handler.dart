@@ -43,6 +43,8 @@ class ErrorHandler implements Exception {
             return DataSource.notFound.getFailure();
           case ResponseCode.internalServerError:
             return DataSource.internalServerError.getFailure();
+          case ResponseCode.networkAuthenticationRequired:
+            return DataSource.networkAuthenticationRequired.getFailure();
         }
         return DataSource.defaultError.getFailure();
       case DioExceptionType.cancel:
@@ -50,9 +52,6 @@ class ErrorHandler implements Exception {
       case DioExceptionType.badCertificate:
         return DataSource.badCertificate.getFailure();
       case DioExceptionType.unknown:
-        if (error.error == DataSource.noInternetConnection) {
-          return DataSource.noInternetConnection.getFailure();
-        }
         return DataSource.defaultError.getFailure();
     }
   }

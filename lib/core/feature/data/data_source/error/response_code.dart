@@ -16,6 +16,8 @@ class ResponseCode {
   static const int notFound = 404;
   // failure, crash happened in server side
   static const int internalServerError = 500;
+  // failure authentication required
+  static const int networkAuthenticationRequired = 511;
   static const int badCertificate = 495;
 
   /// local status code
@@ -60,6 +62,9 @@ class ResponseMessage {
   static const String cacheError = AppStrings.defaultError;
   // issue in connectivity
   static const String noInternetConnection = AppStrings.noInternetError;
+  // issue in authentication
+  static const String networkAuthenticationRequired =
+      AppStrings.networkAuthenticationRequired;
   // issue in certificate
   static const String badCertificate = AppStrings.badCertificate;
 }

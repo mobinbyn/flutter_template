@@ -1,4 +1,3 @@
-import 'package:flutter_template/core/feature/data/data_source/remote/dio_factory.dart';
 import 'package:get_it/get_it.dart';
 import 'index.dart';
 
@@ -14,15 +13,33 @@ Future<void> initAppModule() async {
   // locator.registerSingleton<SharedPreferences>(sharedPreferences);
   // locator.registerSingleton<AppPreferences>(AppPreferences(locator()));
 
+  /// Secure Storage
+  locator.registerSingleton<AppSecureStorage>((AppSecureStorage()));
+
   /// State manager
   locator.registerSingleton(OverlayStateManager<LoadingStateManger>(
       AppConstant.globalNavigatorKey, LoadingStateManger()));
   locator.registerSingleton(OverlayStateManager<FailedStateManger>(
       AppConstant.globalNavigatorKey, FailedStateManger()));
 
-  /// Dio factory
-  locator.registerSingleton<DioFactory>(DioFactory());
+  /// Dio Wrapper
+  locator.registerSingleton<DioWrapper>(DioWrapper());
 
   /// Network info
   // locator.registerSingleton<NetworkInfo>(NetworkInfoImpl(Connectivity()));
+
+  //********************************************************************
+  //* Auth Group
+  // *******************************************************************/
+  authInitModule();
+}
+
+void authInitModule() {
+  /// Repository
+  locator.registerSingleton<AuthRepository>(
+      AuthRepositoryImpl(locator(), locator()));
+  locator.registerFactory(() => RefreshTokenInterceptor(locator()));
+
+  /// Usecase
+  /// Bloc
 }

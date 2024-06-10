@@ -41,6 +41,9 @@ extension DataSourceExtension on DataSource {
       case DataSource.badCertificate:
         return const Failure(
             ResponseCode.badCertificate, ResponseMessage.badCertificate);
+      case DataSource.networkAuthenticationRequired:
+        return const Failure(ResponseCode.networkAuthenticationRequired,
+            ResponseMessage.networkAuthenticationRequired);
       default:
         return const Failure(
             ResponseCode.defaultError, ResponseMessage.defaultError);
