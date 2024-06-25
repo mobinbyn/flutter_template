@@ -1,5 +1,4 @@
-import 'package:get_it/get_it.dart';
-import 'index.dart';
+part of 'injector_index.dart';
 
 final locator = GetIt.instance;
 
@@ -17,10 +16,8 @@ Future<void> initAppModule() async {
   locator.registerSingleton<AppSecureStorage>((AppSecureStorage()));
 
   /// State manager
-  locator.registerSingleton(OverlayStateManager<LoadingStateManger>(
-      AppConstant.globalNavigatorKey, LoadingStateManger()));
-  locator.registerSingleton(OverlayStateManager<FailedStateManger>(
-      AppConstant.globalNavigatorKey, FailedStateManger()));
+  locator.registerSingleton(OverlayStateManager<LoadingStateManger>(AppConstant.globalNavigatorKey, LoadingStateManger()));
+  locator.registerSingleton(OverlayStateManager<FailedStateManger>(AppConstant.globalNavigatorKey, FailedStateManger()));
 
   /// Dio Wrapper
   locator.registerSingleton<DioWrapper>(DioWrapper());
@@ -36,9 +33,7 @@ Future<void> initAppModule() async {
 
 void authInitModule() {
   /// Repository
-  locator.registerSingleton<AuthRepository>(
-      AuthRepositoryImpl(locator(), locator()));
-  locator.registerFactory(() => RefreshTokenInterceptor(locator()));
+  locator.registerFactory(() => TokenInterceptor(locator()));
 
   /// Usecase
   /// Bloc

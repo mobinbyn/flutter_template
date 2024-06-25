@@ -1,4 +1,4 @@
-import 'index.dart';
+part of 'routes_index.dart';
 
 class RouteGenerator {
   Route<dynamic> getRoute(RouteSettings routeSettings) {
