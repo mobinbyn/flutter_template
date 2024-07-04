@@ -36,12 +36,21 @@ class AppThemes {
 
       /// Text theme
       textTheme: TextTheme(
-        displayLarge: AppTextStyle.getBoldStyle(
-            fontSize: AppFontSize.s16, color: AppPalettes.black),
-        displayMedium: AppTextStyle.getRegularStyle(
-            color: AppPalettes.black, fontSize: AppFontSize.s16),
-        displaySmall: AppTextStyle.getBoldStyle(
-            color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        displayLarge: AppTextStyle.getBoldStyle(fontSize: AppFontSize.s16, color: AppPalettes.black),
+        displayMedium: AppTextStyle.getRegularStyle(color: AppPalettes.black, fontSize: AppFontSize.s16),
+        displaySmall: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        headlineLarge: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        headlineMedium: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        headlineSmall: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        titleLarge: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        titleMedium: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        titleSmall: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        bodyLarge: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        bodyMedium: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        bodySmall: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        labelLarge: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        labelMedium: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
+        labelSmall: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
       ),
       fontFamily: AppFontFamily.fontFamily,
 

@@ -15,9 +15,17 @@ Future<void> initAppModule() async {
   /// Secure Storage
   locator.registerSingleton<AppSecureStorage>((AppSecureStorage()));
 
+  /// Global Navigator Key
+  locator.registerSingleton<AppNavKey>(AppNavKey());
+
+  /// Navigation Service
+  locator.registerSingleton(NavigationService(locator<AppNavKey>().globalNavigationKey));
+
   /// State manager
-  locator.registerSingleton(OverlayStateManager<LoadingStateManger>(AppConstant.globalNavigatorKey, LoadingStateManger()));
-  locator.registerSingleton(OverlayStateManager<FailedStateManger>(AppConstant.globalNavigatorKey, FailedStateManger()));
+  locator.registerSingleton<LoadingStateManger>(LoadingStateManger());
+  locator.registerSingleton<FailedStateManger>(FailedStateManger());
+  locator.registerSingleton<OverlayStateManager<LoadingStateManger>>(OverlayStateManager<LoadingStateManger>(locator<AppNavKey>().globalNavigationKey, locator()));
+  locator.registerSingleton<OverlayStateManager<FailedStateManger>>(OverlayStateManager<FailedStateManger>(locator<AppNavKey>().globalNavigationKey, locator()));
 
   /// Dio Wrapper
   locator.registerSingleton<DioWrapper>(DioWrapper());

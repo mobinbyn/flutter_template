@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/entity/state_manager.dart';
-import 'failed_overlay.dart';
-import 'loading_overlay.dart';
 
 /// Example to use in bloc
 // void login() async {
@@ -30,15 +28,21 @@ class OverlayStateManager<T extends StateManager> {
 
   void _onStateChanged(bool isShow) {
     if (isShow) {
-      if (T is LoadingStateManger) {
-        showLoadingDialog(_globalContext);
-      } else if (T is FailedStateManger) {
-        showFailedDialog(_globalContext);
-      }
+      _stateManager.showOverlay(_globalContext);
     } else {
-      // TODO: hide your dialog using the navigation lib in you app
-      if (T is LoadingStateManger) {
-      } else if (T is FailedStateManger) {}
+      _dismissDialog(_globalContext);
     }
   }
+
+  _dismissDialog(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        if (_isThereCurrentDialogShowing(context)) {
+          Navigator.of(context, rootNavigator: true).pop(true);
+        }
+      },
+    );
+  }
+
+  _isThereCurrentDialogShowing(BuildContext context) => ModalRoute.of(context)?.isCurrent != true;
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'core/feature/domain/entity/state_manager.dart';
-import 'core/feature/presentation/widget/overlay_state_manager.dart';
+import 'core/feature/presentation/state/overlay_state_manager.dart';
 import 'core/feature/presentation/widget/main_wrapper.dart';
 
 void main() async {
