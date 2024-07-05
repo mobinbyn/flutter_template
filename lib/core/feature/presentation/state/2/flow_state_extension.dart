@@ -3,7 +3,7 @@ import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'package:flutter_template/core/feature/domain/entity/state_manager.dart';
 import 'package:flutter_template/core/feature/domain/entity/state_renderer_type.dart';
 
-import '../../domain/entity/flow_state.dart';
+import '../../../domain/entity/flow_state.dart';
 
 extension FlowStateExtension on FlowState {
   static final _loadingManger = locator<LoadingStateManger>();

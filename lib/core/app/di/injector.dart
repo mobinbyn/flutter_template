@@ -8,9 +8,9 @@ Future<void> initAppModule() async {
   // *******************************************************************/
   // TODO: The template value
   /// Shared Preferences
-  // final sharedPreferences = await SharedPreferences.getInstance();
-  // locator.registerSingleton<SharedPreferences>(sharedPreferences);
-  // locator.registerSingleton<AppPreferences>(AppPreferences(locator()));
+  final sharedPreferences = await SharedPreferences.getInstance();
+  locator.registerSingleton<SharedPreferences>(sharedPreferences);
+  locator.registerSingleton<AppPreferences>(AppPreferences(locator()));
 
   /// Secure Storage
   locator.registerSingleton<AppSecureStorage>((AppSecureStorage()));
@@ -19,7 +19,10 @@ Future<void> initAppModule() async {
   locator.registerSingleton<AppNavKey>(AppNavKey());
 
   /// Navigation Service
-  locator.registerSingleton(NavigationService(locator<AppNavKey>().globalNavigationKey));
+  locator.registerSingleton<NavigationService>(NavigationService(locator<AppNavKey>().globalNavigationKey));
+
+  /// Theme Cubit
+  locator.registerSingleton<ThemesCubit>(ThemesCubit(locator()));
 
   /// State manager
   locator.registerSingleton<LoadingStateManger>(LoadingStateManger());

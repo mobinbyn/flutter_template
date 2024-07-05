@@ -1,42 +1,50 @@
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-// class AppPreferences {
-//   static const String preferencesKeyLang = 'PREF_KEY_LANG';
-//   static const String preferencesKeyOnboardingScreen =
-//       'PREF_KEY_ONBOARDING_SCREEN';
-//   static const String preferencesKeyIsUserLoggedIn =
-//       'PREF_KEY_IS_USER_LOGGED_IN';
-//   final SharedPreferences _sharedPreferences;
+class AppPreferences {
+  static const String preferencesKeyLang = 'PREF_KEY_LANG';
+  static const String preferencesKeyIsDark = 'PREF_KEY_IS_DARK';
+  static const String preferencesKeyIsUserLoggedIn = 'PREF_KEY_IS_USER_LOGGED_IN';
+  static const String preferencesKeyOnboardingScreen = 'PREF_KEY_ONBOARDING_SCREEN';
 
-//   AppPreferences(this._sharedPreferences);
+  final SharedPreferences _sharedPreferences;
 
-//   Future<String> getAppLanguage() async {
-//     String? language = _sharedPreferences.getString(preferencesKeyLang);
+  AppPreferences(this._sharedPreferences);
 
-//     if (language != null && language.isNotEmpty) {
-//       return language;
-//     } else {
-//       return 'p';
-//     }
-//   }
+  String getAppLanguage() {
+    String? language = _sharedPreferences.getString(preferencesKeyLang);
 
-//   Future<void> setOnBoardingScreenViewed() async {
-//     _sharedPreferences.setBool(preferencesKeyOnboardingScreen, true);
-//   }
+    if (language != null && language.isNotEmpty) {
+      return language;
+    } else {
+      return 'p';
+    }
+  }
 
-//   Future<bool> isOnBoardingScreenViewed() async {
-//     return _sharedPreferences.getBool(preferencesKeyOnboardingScreen) ?? false;
-//   }
+  void hasDark(bool isDark) async {
+    _sharedPreferences.setBool(preferencesKeyIsDark, isDark);
+  }
 
-//   Future<void> setIsUserLoggedIn() async {
-//     _sharedPreferences.setBool(preferencesKeyIsUserLoggedIn, true);
-//   }
+  bool isDark() {
+    return _sharedPreferences.getBool(preferencesKeyIsDark) ?? false;
+  }
 
-//   Future<bool> isUserLoggedIn() async {
-//     return _sharedPreferences.getBool(preferencesKeyIsUserLoggedIn) ?? false;
-//   }
+  void setOnBoardingScreenViewed() {
+    _sharedPreferences.setBool(preferencesKeyOnboardingScreen, true);
+  }
 
-//   Future<void> logout() async {
-//     _sharedPreferences.remove(preferencesKeyIsUserLoggedIn);
-//   }
-// }
+  bool isOnBoardingScreenViewed() {
+    return _sharedPreferences.getBool(preferencesKeyOnboardingScreen) ?? false;
+  }
+
+  void setIsUserLoggedIn() {
+    _sharedPreferences.setBool(preferencesKeyIsUserLoggedIn, true);
+  }
+
+  bool isUserLoggedIn() {
+    return _sharedPreferences.getBool(preferencesKeyIsUserLoggedIn) ?? false;
+  }
+
+  void logout() {
+    _sharedPreferences.remove(preferencesKeyIsUserLoggedIn);
+  }
+}
