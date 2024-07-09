@@ -1,52 +1,116 @@
-// import 'dart:async';
+import 'dart:async';
 
-// import 'package:flutter_template/core/app/utility/logging_mixin.dart';
-// import 'package:location/location.dart';
+import 'package:flutter_template/core/app/utility/logging_mixin.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-// class LocationService with LogMixin {
-//   // Keep track of current location
-//   late UserLocation _currentLocation;
+abstract class ILocationService {
+  Future<bool> hasPermission();
+  Future<bool> handleLocationPermission();
 
-//   var location = Location();
+  // TODO register live location
+  Future<LatLng?> getUserCurrentLocation({bool trackInBackground = false});
+  Future<String> getAddressFromLatLng(LatLng latLng);
 
-//   // Continuously emit location updates
-//   final StreamController<UserLocation> _locationController =
-//       StreamController<UserLocation>.broadcast();
+  void closeLocation();
+}
 
-//   LocationService() {
-//     location.requestPermission().then((value) {
-//       if (value == PermissionStatus.granted) {
-//         location.onLocationChanged.listen((locationData) {
-//           _locationController.add(UserLocation(
-//             latitude: locationData.latitude,
-//             longitude: locationData.longitude,
-//           ));
-//         });
-//       }
-//     });
-//   }
+class LocationService extends ILocationService with LogMixin {
+  late StreamSubscription<Position>? positionStream;
 
-//   Stream<UserLocation> get locationStream => _locationController.stream;
+  // Continuously emit location updates
+  final StreamController<LatLng> _locationController = StreamController<LatLng>.broadcast();
 
-//   Future<UserLocation> getLocation() async {
-//     try {
-//       LocationData userLocation = await location.getLocation();
-//       logger.d(
-//           'User location: latitude = ${userLocation.latitude} longitude = ${userLocation.longitude}');
-//       _currentLocation = UserLocation(
-//         latitude: userLocation.latitude,
-//         longitude: userLocation.longitude,
-//       );
-//     } catch (e) {
-//       logger.e('Can not access for location: $e');
-//     }
-//     return _currentLocation;
-//   }
-// }
+  Stream<LatLng> get locationStream => _locationController.stream;
 
-// class UserLocation {
-//   final double? latitude;
-//   final double? longitude;
+  LocationService() {
+    positionStream = Geolocator.getPositionStream().listen(
+      (location) {
+        _locationController.add(
+          LatLng(location.latitude, location.longitude),
+        );
+      },
+    );
+  }
 
-//   UserLocation({required this.latitude, required this.longitude});
-// }
+  @override
+  Future<String> getAddressFromLatLng(LatLng latLng) async {
+    await placemarkFromCoordinates(latLng.latitude, latLng.longitude).then(
+      (List<Placemark> placemark) {
+        Placemark place = placemark[0];
+        return '${place.street}, ${place.subLocality}, ${place.subAdministrativeArea}, ${place.postalCode}';
+      },
+    ).catchError(
+      (e) {
+        logger.e('No address found: $e');
+        return 'No address found';
+      },
+    );
+    return 'No address found';
+  }
+
+  @override
+  Future<LatLng?> getUserCurrentLocation({bool trackInBackground = false}) async {
+    LatLng? currentLocation;
+
+    final mHasPermission = await hasPermission();
+
+    if (!mHasPermission) return currentLocation;
+
+    await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high).then(
+      (Position position) {
+        currentLocation = LatLng(position.latitude, position.longitude);
+      },
+    );
+
+    return currentLocation;
+  }
+
+  @override
+  Future<bool> handleLocationPermission() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      logger.d('Location services are disabled. Please enable the services');
+      return false;
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        logger.d('Location permissions are denied');
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      logger.d('Location permissions are permanently denied, we cannot request permissions.');
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  Future<bool> hasPermission() async {
+    // Check if location services are enabled
+    if (!await Geolocator.isLocationServiceEnabled()) return false;
+
+    // Check if location permissions are granted
+    LocationPermission permission = await Geolocator.checkPermission();
+    return permission == LocationPermission.whileInUse || permission == LocationPermission.always;
+  }
+
+  @override
+  void closeLocation() {
+    if (positionStream != null) {
+      positionStream!.cancel();
+
+      _locationController.close();
+
+      positionStream = null;
+    }
+  }
+}
