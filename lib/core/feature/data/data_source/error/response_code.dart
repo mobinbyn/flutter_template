@@ -63,8 +63,7 @@ class ResponseMessage {
   // issue in connectivity
   static const String noInternetConnection = AppStrings.noInternetError;
   // issue in authentication
-  static const String networkAuthenticationRequired =
-      AppStrings.networkAuthenticationRequired;
+  static const String networkAuthenticationRequired = AppStrings.networkAuthenticationRequired;
   // issue in certificate
   static const String badCertificate = AppStrings.badCertificate;
 }

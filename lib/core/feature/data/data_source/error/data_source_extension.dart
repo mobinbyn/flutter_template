@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'response_code.dart';
 import 'data_source_enum.dart';
 import 'failure.dart';
@@ -6,47 +8,35 @@ extension DataSourceExtension on DataSource {
   Failure getFailure() {
     switch (this) {
       case DataSource.badRequest:
-        return const Failure(
-            ResponseCode.badRequest, ResponseMessage.badRequest);
+        return Failure(ResponseCode.badRequest, ResponseMessage.badRequest.tr());
       case DataSource.forbidden:
-        return const Failure(ResponseCode.forbidden, ResponseMessage.forbidden);
+        return Failure(ResponseCode.forbidden, ResponseMessage.forbidden.tr());
       case DataSource.unauthorized:
-        return const Failure(
-            ResponseCode.unauthorized, ResponseMessage.unauthorized);
+        return Failure(ResponseCode.unauthorized, ResponseMessage.unauthorized.tr());
       case DataSource.notFound:
-        return const Failure(ResponseCode.notFound, ResponseMessage.notFound);
+        return Failure(ResponseCode.notFound, ResponseMessage.notFound.tr());
       case DataSource.internalServerError:
-        return const Failure(ResponseCode.internalServerError,
-            ResponseMessage.internalServerError);
+        return Failure(ResponseCode.internalServerError, ResponseMessage.internalServerError.tr());
       case DataSource.connectTimeout:
-        return const Failure(
-            ResponseCode.connectTimeout, ResponseMessage.connectTimeout);
+        return Failure(ResponseCode.connectTimeout, ResponseMessage.connectTimeout.tr());
       case DataSource.cancel:
-        return const Failure(ResponseCode.cancel, ResponseMessage.cancel);
+        return Failure(ResponseCode.cancel, ResponseMessage.cancel.tr());
       case DataSource.receiveTimeout:
-        return const Failure(
-            ResponseCode.receiveTimeout, ResponseMessage.receiveTimeout);
+        return Failure(ResponseCode.receiveTimeout, ResponseMessage.receiveTimeout.tr());
       case DataSource.sendTimeout:
-        return const Failure(
-            ResponseCode.sendTimeout, ResponseMessage.sendTimeout);
+        return Failure(ResponseCode.sendTimeout, ResponseMessage.sendTimeout.tr());
       case DataSource.cacheError:
-        return const Failure(
-            ResponseCode.cacheError, ResponseMessage.cacheError);
+        return Failure(ResponseCode.cacheError, ResponseMessage.cacheError.tr());
       case DataSource.noInternetConnection:
-        return const Failure(ResponseCode.noInternetConnection,
-            ResponseMessage.noInternetConnection);
+        return Failure(ResponseCode.noInternetConnection, ResponseMessage.noInternetConnection.tr());
       case DataSource.defaultError:
-        return const Failure(
-            ResponseCode.defaultError, ResponseMessage.defaultError);
+        return Failure(ResponseCode.defaultError, ResponseMessage.defaultError.tr());
       case DataSource.badCertificate:
-        return const Failure(
-            ResponseCode.badCertificate, ResponseMessage.badCertificate);
+        return Failure(ResponseCode.badCertificate, ResponseMessage.badCertificate.tr());
       case DataSource.networkAuthenticationRequired:
-        return const Failure(ResponseCode.networkAuthenticationRequired,
-            ResponseMessage.networkAuthenticationRequired);
+        return Failure(ResponseCode.networkAuthenticationRequired, ResponseMessage.networkAuthenticationRequired.tr());
       default:
-        return const Failure(
-            ResponseCode.defaultError, ResponseMessage.defaultError);
+        return Failure(ResponseCode.defaultError, ResponseMessage.defaultError.tr());
     }
   }
 }

@@ -10,7 +10,8 @@ class AppThemes {
   /// Light theme config
   ThemeData lightTheme() {
     return ThemeData(
-      useMaterial3: false,
+      useMaterial3: true,
+      brightness: Brightness.light,
       scaffoldBackgroundColor: AppPalettes.neutral[99],
       colorScheme: ColorScheme(
         background: AppPalettes.neutral[100]!,
@@ -27,9 +28,12 @@ class AppThemes {
       ),
 
       /// Button theme
+      buttonTheme: ButtonThemeData(),
       outlinedButtonTheme: AppButtonTheme.primaryOutline,
       filledButtonTheme: AppButtonTheme.primary,
       textButtonTheme: AppButtonTheme.textButton,
+      iconButtonTheme: IconButtonThemeData(),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(),
 
       /// Input decoration theme (Text form field)
       inputDecorationTheme: AppInputTheme.textFilledTheme,
@@ -53,6 +57,24 @@ class AppThemes {
         labelSmall: AppTextStyle.getBoldStyle(color: AppPalettes.primary, fontSize: AppFontSize.s16),
       ),
       fontFamily: AppFontFamily.fontFamily,
+
+      iconTheme: IconThemeData(color: AppPalettes.primary),
+      actionIconTheme: ActionIconThemeData(),
+      appBarTheme: AppBarTheme(),
+      badgeTheme: BadgeThemeData(),
+      bannerTheme: MaterialBannerThemeData(),
+      bottomAppBarTheme: BottomAppBarTheme(),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(),
+      bottomSheetTheme: BottomSheetThemeData(),
+      toggleButtonsTheme: ToggleButtonsThemeData(),
+      chipTheme: ChipThemeData(),
+      checkboxTheme: CheckboxThemeData(),
+      cardTheme: CardTheme(),
+      dialogTheme: DialogTheme(),
+      datePickerTheme: DatePickerThemeData(),
+      dividerTheme: DividerThemeData(),
+      drawerTheme: DrawerThemeData(),
+      dropdownMenuTheme: DropdownMenuThemeData(),
 
       /// Chip Theme
       // chipTheme: ChipThemeData(

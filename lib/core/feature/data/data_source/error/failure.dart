@@ -12,6 +12,5 @@ class Failure extends Equatable {
 }
 
 class DefaultFailure extends Failure {
-  const DefaultFailure()
-      : super(ResponseCode.defaultError, ResponseMessage.defaultError);
+  const DefaultFailure() : super(ResponseCode.defaultError, ResponseMessage.defaultError);
 }

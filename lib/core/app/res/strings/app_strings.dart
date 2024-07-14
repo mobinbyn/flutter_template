@@ -25,14 +25,12 @@ class AppStrings {
   static const String unauthorizedErrorSubMsg = 'unauthorized_error_sub_msg';
   static const String notFoundErrorSubMsg = 'not_found_error_sub_msg';
   static const String conflictErrorSubMsg = 'conflict_error_sub_msg';
-  static const String internalServerErrorSubMsg =
-      'internal_server_error_sub_msg';
+  static const String internalServerErrorSubMsg = 'internal_server_error_sub_msg';
   static const String unknownErrorSubMsg = 'unknown_error_sub_msg';
   static const String timeoutErrorSubMsg = 'timeout_error_sub_msg';
   static const String defaultErrorSubMsg = 'default_error_sub_msg';
   static const String cacheErrorSubMsg = 'cache_error_sub_msg';
   static const String noInternetErrorSubMsg = 'no_internet_error_sub_msg';
   static const String badCertificateSubMsg = 'bad_certificate_sub_msg';
-  static const String networkAuthenticationRequired =
-      'networkAuthenticationRequired';
+  static const String networkAuthenticationRequired = 'networkAuthenticationRequired';
 }
