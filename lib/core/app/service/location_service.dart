@@ -1,20 +1,10 @@
 import 'dart:async';
 
+import 'package:flutter_template/core/app/service/interface/i_location_service.dart';
 import 'package:flutter_template/core/app/utility/logging_mixin.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-abstract class ILocationService {
-  Future<bool> hasPermission();
-  Future<bool> handleLocationPermission();
-
-  // TODO register live location
-  Future<LatLng?> getUserCurrentLocation({bool trackInBackground = false});
-  Future<String> getAddressFromLatLng(LatLng latLng);
-
-  void closeLocation();
-}
 
 class LocationService extends ILocationService with LogMixin {
   late StreamSubscription<Position>? positionStream;
