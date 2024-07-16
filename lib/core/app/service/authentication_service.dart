@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dartz/dartz.dart';
 import 'package:flutter_template/core/app/service/interface/i_authentication_service.dart';
 import 'package:flutter_template/core/app/utility/logging_mixin.dart';
