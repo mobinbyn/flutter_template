@@ -16,7 +16,7 @@ class LocationService extends ILocationService with LogMixin {
 
   LocationService() {
     positionStream = Geolocator.getPositionStream().listen(
-      (location) {
+      (Position location) {
         _locationController.add(
           LatLng(location.latitude, location.longitude),
         );
