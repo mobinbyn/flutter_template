@@ -29,7 +29,7 @@ class MainWrapper extends StatelessWidget {
           splitScreenMode: true,
         );
         return Theme(
-          data: AppThemes().lightTheme(),
+          data: AppThemes.lightTheme,
           child: child!,
         );
       },
