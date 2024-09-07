@@ -5,10 +5,10 @@ import 'response_code.dart';
 
 import 'failure.dart';
 
-class ErrorHandler implements Exception {
+class DioErrorHandler implements Exception {
   late Failure failure;
 
-  ErrorHandler.handle(dynamic error) {
+  DioErrorHandler.handle(dynamic error) {
     if (error is DioException) {
       // Dio error so its error from response of the API
       failure = _handleError(error);
@@ -17,7 +17,7 @@ class ErrorHandler implements Exception {
     }
   }
 
-  ErrorHandler.noInternetConnection() {
+  DioErrorHandler.noInternetConnection() {
     failure = DataSource.noInternetConnection.getFailure();
   }
 

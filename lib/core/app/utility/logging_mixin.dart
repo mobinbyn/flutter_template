@@ -25,9 +25,6 @@ class CustomPrinter extends LogPrinter {
     final message = event.message;
     final time = event.time;
 
-    return [
-      color!(
-          '[$emoji $className] [${event.level.name.toUpperCase()}] $message Time:$time')
-    ];
+    return [color!('[$emoji $className] [${event.level.name.toUpperCase()}] $message Time:$time')];
   }
 }

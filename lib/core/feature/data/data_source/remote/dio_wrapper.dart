@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 import '../../../../app/di/injector_index.dart';
 import '../../../../app/res/const/app_constant.dart';
-import 'token_interceptor.dart';
+import 'jwt_interceptor.dart';
 
 class DioWrapper {
   Dio getDio({
@@ -26,7 +26,8 @@ class DioWrapper {
     );
 
     if (hasToken) {
-      dio.interceptors.add(locator<TokenInterceptor>());
+      // dio.interceptors.add(locator<TokenInterceptor>());
+      dio.interceptors.add(locator<AuthInterceptor>());
     }
     return dio;
   }

@@ -1,12 +1,13 @@
+import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_template/core/app/service/interface/i_authentication_service.dart';
-import 'package:flutter_template/core/app/utility/logging_mixin.dart';
 
-import '../../feature/data/model/token_model.dart';
 import '../../feature/data/data_source/error/failure.dart';
 import '../../feature/data/data_source/local/app_secure_storage.dart';
 import '../../feature/data/data_source/remote/dio_wrapper.dart';
 import '../../feature/data/data_source/remote/safe_call_extensions.dart';
+import '../../feature/data/model/token_model.dart';
+import '../utility/logging_mixin.dart';
+import 'interface/i_authentication_service.dart';
 import 'navigation_service.dart';
 
 class AuthenticationService extends IAuthenticationService with LogMixin {
@@ -21,7 +22,65 @@ class AuthenticationService extends IAuthenticationService with LogMixin {
   );
 
   @override
-  Future<Either<Failure, bool>> login(String email, String password) async {
+  Future<void> saveToken(String token) async {
+    logger.d('Save token to secure storage');
+    await _secureStorage.saveToken(token);
+  }
+
+  @override
+  Future<String?> getToken() async {
+    logger.d('Get token from secure storage');
+    return await _secureStorage.getToken;
+  }
+
+  @override
+  Future<void> clearToken() async {
+    logger.d('Clear token from secure storage');
+    await _secureStorage.clearToken();
+  }
+
+  @override
+  Future<void> saveTokenPair(TokenPair tokenPair) async {
+    logger.d('Save token pair to secure storage');
+    await _secureStorage.saveTokenPair(tokenPair);
+  }
+
+  @override
+  Future<TokenPair?> getTokenPair() async {
+    logger.d('Get token pair from secure storage');
+    return await _secureStorage.getTokenPair();
+  }
+
+  @override
+  Future<void> clearTokenPair() async {
+    logger.d('Clear token pair from secure storage');
+    await _secureStorage.clearTokenPair();
+  }
+
+  /// [marginOfErrorInMilliseconds] can be changed.
+  /// It is an error value to ensure that when the request is sent,
+  /// it will not be expired.
+  @override
+  Future<bool> isAccessTokenValid() async {
+    logger.d('Check if token is valid');
+    final tokenPair = await _secureStorage.getTokenPair();
+
+    if (tokenPair == null) {
+      return false;
+    }
+
+    final decodedJwt = JWT.decode(tokenPair.accessToken);
+    final expirationTimeEpoch = decodedJwt.payload['exp'];
+    final expirationDateTime = DateTime.fromMillisecondsSinceEpoch(expirationTimeEpoch * 1000);
+
+    const marginOfErrorInMilliseconds = 1000;
+    const addedMarginTime = Duration(milliseconds: marginOfErrorInMilliseconds);
+
+    return DateTime.now().add(addedMarginTime).isBefore(expirationDateTime);
+  }
+
+  @override
+  Future<Either<Failure, bool>> loginWithUsernameAndPassword(String username, String password, {bool isTokenPair = true}) async {
     var result = await _dio.getDio().safeCall(
           'sign_in.php',
           mapper: TokenModel.fromMap,
@@ -33,8 +92,12 @@ class AuthenticationService extends IAuthenticationService with LogMixin {
       (token) {
         // Check if token is not empty
         if (token.accessToken.isNotEmpty) {
-          // Save user secure storage
-          _secureStorage.persistEmailAndToken(email, token.accessToken, token.refreshToken);
+          // Save token secure storage
+          if (isTokenPair) {
+            _secureStorage.saveTokenPair((accessToken: token.accessToken, refreshToken: token.refreshToken!));
+          } else {
+            _secureStorage.saveToken(token.accessToken);
+          }
           // Navigate to home screen
           _navigationService.navigateToReplacementAll('/home_screen');
           return const Right(true);
@@ -47,37 +110,16 @@ class AuthenticationService extends IAuthenticationService with LogMixin {
   }
 
   @override
-  Future<void> persistToken(String token, String refreshToken) async {
-    logger.d('Persist token to secure storage');
-    // Get Email
-    String? email = await _secureStorage.getEmail();
-    // Save user secure storage
-    await _secureStorage.persistEmailAndToken(email!, token, refreshToken);
-  }
-
-  @override
-  Future<bool> isAuthenticated() async {
-    logger.d('Check if user is authenticated');
-    return await _secureStorage.hasToken();
-  }
-
-  @override
-  Future<String?> getToken() async {
-    logger.d('Get token from secure storage');
-    return await _secureStorage.getToken();
-  }
-
-  @override
-  Future<String?> getRefreshToken() {
-    logger.d('Get refresh token from secure storage');
-    return _secureStorage.getRefreshToken();
+  Future<Either<Failure, bool>> login() async {
+    // TODO : implement login
+    throw UnimplementedError();
   }
 
   @override
   Future<void> logout() async {
     logger.d('Start logout process');
     // Delete user secure storage
-    await _secureStorage.deleteAll();
+    await _secureStorage.clearAll();
     // Navigate to home screen
     _navigationService.navigateToReplacementAll('/');
   }

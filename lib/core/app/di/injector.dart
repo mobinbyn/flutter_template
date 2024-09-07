@@ -22,7 +22,7 @@ Future<void> initAppModule() async {
   locator.registerSingleton<NavigationService>(NavigationService(locator<AppNavKey>().globalNavigationKey));
 
   /// Theme Cubit
-  locator.registerSingleton<ThemesCubit>(ThemesCubit(locator()));
+  // locator.registerSingleton<ThemesCubit>(ThemesCubit(locator()));
 
   /// State manager
   locator.registerSingleton<LoadingStateManger>(LoadingStateManger());
@@ -44,7 +44,8 @@ Future<void> initAppModule() async {
 
 void authInitModule() {
   /// Repository
-  locator.registerFactory(() => TokenInterceptor(locator()));
+  // locator.registerFactory(() => TokenInterceptor(locator()));
+  // locator.registerFactory(() => AuthInterceptor(dio: dio, authenticationService: locator()));
 
   /// Usecase
   /// Bloc

@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 
 import '../../../../app/utility/logging_mixin.dart';
-import '../error/error_handler.dart';
+import '../error/dio_error_handler.dart';
 import '../error/failure.dart';
 import '../error/response_code.dart';
 import 'network_check.dart';
@@ -30,7 +30,7 @@ extension DioExtensions on Dio {
       if (!await NetworkCheck.instance.isNetworkAvailable()) {
         // Handle network not available case, you can throw an exception or return an error response.
         logger.d('Internet Connection Error');
-        return Left(ErrorHandler.noInternetConnection().failure);
+        return Left(DioErrorHandler.noInternetConnection().failure);
       }
 
       logger.d('${method.stringValue} request for $endPoint');
@@ -62,10 +62,10 @@ extension DioExtensions on Dio {
 
       // Handle error
       logger.d('${method.stringValue} request failed');
-      return Left(ErrorHandler.handle(response.statusCode).failure);
+      return Left(DioErrorHandler.handle(response.statusCode).failure);
     } catch (exception) {
       logger.e(exception.toString());
-      return Left(ErrorHandler.handle(exception).failure);
+      return Left(DioErrorHandler.handle(exception).failure);
     }
   }
 }

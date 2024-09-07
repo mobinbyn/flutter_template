@@ -8,9 +8,9 @@ import 'core/feature/presentation/widget/main_wrapper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  EasyLocalization.ensureInitialized();
 
   await Future.wait([
+    EasyLocalization.ensureInitialized(),
     initAppModule(),
   ]);
 

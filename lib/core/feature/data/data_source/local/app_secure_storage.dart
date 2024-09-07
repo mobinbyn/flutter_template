@@ -1,5 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../../../app/service/interface/i_authentication_service.dart';
+
 class AppSecureStorage {
   static const String _emailKey = 'SECURE_STORAGE_KEY_EMAIL';
   static const String _tokenKey = 'SECURE_STORAGE_KEY_TOKEN';
@@ -13,10 +15,45 @@ class AppSecureStorage {
 
   AppSecureStorage();
 
-  Future<void> persistEmailAndToken(String email, String token, String refreshToken) async {
-    await _secureStorage.write(key: _emailKey, value: email);
+  Future<void> saveToken(String token) async {
     await _secureStorage.write(key: _tokenKey, value: token);
-    await _secureStorage.write(key: _refreshTokenKey, value: refreshToken);
+  }
+
+  Future<String?> get getToken => _secureStorage.read(key: _tokenKey);
+
+  Future<void> clearToken() async {
+    await _secureStorage.delete(key: _tokenKey);
+  }
+
+  Future<void> saveTokenPair(TokenPair tokenPair) async {
+    await _secureStorage.write(key: _tokenKey, value: tokenPair.accessToken);
+    await _secureStorage.write(key: _refreshTokenKey, value: tokenPair.refreshToken);
+  }
+
+  Future<TokenPair?> getTokenPair() async {
+    var accessToken = await _secureStorage.read(key: _tokenKey);
+    var refreshToken = await _secureStorage.read(key: _refreshTokenKey);
+    if (accessToken != null && refreshToken != null) {
+      return (accessToken: accessToken, refreshToken: refreshToken);
+    }
+    return null;
+  }
+
+  Future<void> clearTokenPair() async {
+    await _secureStorage.delete(key: _tokenKey);
+    await _secureStorage.delete(key: _refreshTokenKey);
+  }
+
+  Future<void> saveEmail(String email) async {
+    await _secureStorage.write(key: _emailKey, value: email);
+  }
+
+  Future<String?> getEmail() async {
+    return await _secureStorage.read(key: _emailKey);
+  }
+
+  Future<void> clearEmail() async {
+    await _secureStorage.delete(key: _emailKey);
   }
 
   Future<bool> hasEmail() async {
@@ -24,41 +61,7 @@ class AppSecureStorage {
     return value != null;
   }
 
-  Future<bool> hasToken() async {
-    var value = await _secureStorage.read(key: _tokenKey);
-    return value != null;
-  }
-
-  Future<bool> hasRefreshToken() async {
-    var value = await _secureStorage.read(key: _refreshTokenKey);
-    return value != null;
-  }
-
-  Future<void> deleteEmail() async {
-    await _secureStorage.delete(key: _emailKey);
-  }
-
-  Future<void> deleteToken() async {
-    await _secureStorage.delete(key: _tokenKey);
-  }
-
-  Future<void> deleteRefreshToken() async {
-    await _secureStorage.delete(key: _refreshTokenKey);
-  }
-
-  Future<String?> getEmail() async {
-    return await _secureStorage.read(key: _emailKey);
-  }
-
-  Future<String?> getToken() async {
-    return await _secureStorage.read(key: _tokenKey);
-  }
-
-  Future<String?> getRefreshToken() async {
-    return await _secureStorage.read(key: _refreshTokenKey);
-  }
-
-  Future<void> deleteAll() async {
+  Future<void> clearAll() async {
     return await _secureStorage.deleteAll();
   }
 }
