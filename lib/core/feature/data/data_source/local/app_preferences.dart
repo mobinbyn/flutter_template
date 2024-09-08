@@ -36,8 +36,8 @@ class AppPreferences {
     return _sharedPreferences.getBool(preferencesKeyOnboardingScreen) ?? false;
   }
 
-  void setIsUserLoggedIn() {
-    _sharedPreferences.setBool(preferencesKeyIsUserLoggedIn, true);
+  void setIsUserLoggedIn(bool isUserLoggedIn) {
+    _sharedPreferences.setBool(preferencesKeyIsUserLoggedIn, isUserLoggedIn);
   }
 
   bool isUserLoggedIn() {
@@ -46,5 +46,9 @@ class AppPreferences {
 
   void logout() {
     _sharedPreferences.remove(preferencesKeyIsUserLoggedIn);
+  }
+
+  Future<bool> clearAll() async {
+    return await _sharedPreferences.clear();
   }
 }

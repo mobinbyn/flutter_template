@@ -6,7 +6,6 @@ import '../../../../app/utility/logging_mixin.dart';
 import '../error/dio_error_handler.dart';
 import '../error/failure.dart';
 import '../error/response_code.dart';
-import 'network_check.dart';
 import 'request_type.dart';
 
 extension DioExtensions on Dio {
@@ -27,11 +26,11 @@ extension DioExtensions on Dio {
     assert((mapper != null) || (listMapper != null), 'Either mapper or listMapper must be provided');
     try {
       // Check Internet Connection
-      if (!await NetworkCheck.instance.isNetworkAvailable()) {
-        // Handle network not available case, you can throw an exception or return an error response.
-        logger.d('Internet Connection Error');
-        return Left(DioErrorHandler.noInternetConnection().failure);
-      }
+      // if (!await NetworkInfoService().isConnected()) {
+      //   // Handle network not available case, you can throw an exception or return an error response.
+      //   logger.d('Internet Connection Error');
+      //   return Left(DioErrorHandler.noInternetConnection().failure);
+      // }
 
       logger.d('${method.stringValue} request for $endPoint');
       Response response = await fetch(

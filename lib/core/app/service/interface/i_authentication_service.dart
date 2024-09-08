@@ -1,18 +1,16 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_template/core/feature/data/data_source/error/failure.dart';
+import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
 
-typedef TokenPair = ({String accessToken, String refreshToken});
+typedef TokenPair = ({String accessToken, String? refreshToken});
 
 abstract class IAuthenticationService {
-  /// *Only Token
-  /// Write token to secure storage
-  Future<void> saveToken(String token);
+  Future<Either<Failure, AuthModel>> signIn(String username, String password);
+  Future<Either<Failure, AuthModel>> signUP(String username, String password);
+  Future<void> signOut();
 
-  /// Read token from secure storage
-  Future<String?> getToken();
-
-  /// Clear token from secure storage
-  Future<void> clearToken();
+  Future<bool> isSignedIn();
+  Future<void> updateIsSignedIn();
 
   /// *Token Pair (Token and Refresh Token)
   /// Write token pair to secure storage
@@ -26,14 +24,4 @@ abstract class IAuthenticationService {
 
   /// Check if access token is valid
   Future<bool> isAccessTokenValid();
-
-  /// *Login - Logout - Register
-  /// Login with email and password
-  Future<Either<Failure, bool>> loginWithUsernameAndPassword(String username, String password);
-
-  /// Login with other services
-  Future<Either<Failure, bool>> login();
-
-  /// Logout
-  Future<void> logout();
 }

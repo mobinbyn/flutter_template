@@ -15,16 +15,6 @@ class AppSecureStorage {
 
   AppSecureStorage();
 
-  Future<void> saveToken(String token) async {
-    await _secureStorage.write(key: _tokenKey, value: token);
-  }
-
-  Future<String?> get getToken => _secureStorage.read(key: _tokenKey);
-
-  Future<void> clearToken() async {
-    await _secureStorage.delete(key: _tokenKey);
-  }
-
   Future<void> saveTokenPair(TokenPair tokenPair) async {
     await _secureStorage.write(key: _tokenKey, value: tokenPair.accessToken);
     await _secureStorage.write(key: _refreshTokenKey, value: tokenPair.refreshToken);
@@ -33,7 +23,8 @@ class AppSecureStorage {
   Future<TokenPair?> getTokenPair() async {
     var accessToken = await _secureStorage.read(key: _tokenKey);
     var refreshToken = await _secureStorage.read(key: _refreshTokenKey);
-    if (accessToken != null && refreshToken != null) {
+
+    if (accessToken != null) {
       return (accessToken: accessToken, refreshToken: refreshToken);
     }
     return null;
