@@ -18,17 +18,16 @@ Future<void> initAppModule() async {
   /// Global Navigator Key
   locator.registerSingleton<AppNavKey>(AppNavKey());
 
+  /// State manager (Dialog Manager)
+  locator.registerSingleton<LoadingManager>(LoadingManager());
+  locator.registerSingleton<FailedManager>(FailedManager());
+  locator.registerSingleton<DialogManager>(DialogManager(locator<AppNavKey>().globalNavigationKey, locator(), locator()));
+
   /// Navigation Service
   locator.registerSingleton<NavigationService>(NavigationService(locator<AppNavKey>().globalNavigationKey));
 
   /// Theme Cubit
   // locator.registerSingleton<ThemesCubit>(ThemesCubit(locator()));
-
-  /// State manager
-  locator.registerSingleton<LoadingStateManger>(LoadingStateManger());
-  locator.registerSingleton<FailedStateManger>(FailedStateManger());
-  locator.registerSingleton<OverlayStateManager<LoadingStateManger>>(OverlayStateManager<LoadingStateManger>(locator<AppNavKey>().globalNavigationKey, locator()));
-  locator.registerSingleton<OverlayStateManager<FailedStateManger>>(OverlayStateManager<FailedStateManger>(locator<AppNavKey>().globalNavigationKey, locator()));
 
   /// Dio Wrapper
   locator.registerSingleton<DioWrapper>(DioWrapper());

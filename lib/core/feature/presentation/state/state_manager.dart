@@ -34,7 +34,7 @@ class DialogManager {
     }
   }
 
-  void _onFailedStateChanged((bool, {Failure? failure}) arg) {
+  void _onFailedStateChanged((bool, {Failure? failure, void Function()? retryAction}) arg) {
     if (arg.$1) {
       _isFailedShown = true;
       showModalBottomSheet(
@@ -75,17 +75,16 @@ class LoadingManager {
 }
 
 class FailedManager {
-  final _failedStreamController = StreamController<(bool, {Failure? failure})>();
-  // final _failedStreamController = StreamController<FailedStreamType>();
+  final _failedStreamController = StreamController<(bool, {Failure? failure, void Function()? retryAction})>();
 
-  Stream<(bool, {Failure? failure})> get failedStream => _failedStreamController.stream;
+  Stream<(bool, {Failure? failure, void Function()? retryAction})> get failedStream => _failedStreamController.stream;
 
-  void show(Failure failure) => _setState(true, failure: failure);
+  void show(Failure failure, {void Function()? retryAction}) => _setState(true, failure: failure, retryAction: retryAction);
 
   void hide() => _setState(false);
 
-  void _setState(bool isFailed, {Failure? failure}) {
-    _failedStreamController.add((isFailed, failure: failure));
+  void _setState(bool isFailed, {Failure? failure, void Function()? retryAction}) {
+    _failedStreamController.add((isFailed, failure: failure, retryAction: retryAction));
   }
 }
 
