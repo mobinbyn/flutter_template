@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter_template/core/feature/data/data_source/remote/jwt_interceptor.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
