@@ -1,16 +1,18 @@
 import 'package:equatable/equatable.dart';
 import 'response_code.dart';
 
-class Failure extends Equatable {
-  final int code;
-  final String message;
+typedef FailureMetadata = ({int statusCode, int code, String description});
 
-  const Failure(this.code, this.message);
+class Failure extends Equatable {
+  final String message;
+  final FailureMetadata? metadata;
+
+  const Failure(this.message, {this.metadata});
 
   @override
-  List<Object> get props => [code, message];
+  List<Object> get props => [message, metadata!];
 }
 
 class DefaultFailure extends Failure {
-  const DefaultFailure() : super(ResponseCode.defaultError, ResponseMessage.defaultError);
+  const DefaultFailure() : super(ResponseMessage.defaultError);
 }

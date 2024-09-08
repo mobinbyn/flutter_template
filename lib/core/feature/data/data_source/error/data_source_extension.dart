@@ -8,35 +8,35 @@ extension DataSourceExtension on DataSource {
   Failure getFailure() {
     switch (this) {
       case DataSource.badRequest:
-        return Failure(ResponseCode.badRequest, ResponseMessage.badRequest.tr());
+        return Failure(ResponseMessage.badRequest.tr());
       case DataSource.forbidden:
-        return Failure(ResponseCode.forbidden, ResponseMessage.forbidden.tr());
+        return Failure(ResponseMessage.forbidden.tr());
       case DataSource.unauthorized:
-        return Failure(ResponseCode.unauthorized, ResponseMessage.unauthorized.tr());
+        return Failure(ResponseMessage.unauthorized.tr());
       case DataSource.notFound:
-        return Failure(ResponseCode.notFound, ResponseMessage.notFound.tr());
+        return Failure(ResponseMessage.notFound.tr());
       case DataSource.internalServerError:
-        return Failure(ResponseCode.internalServerError, ResponseMessage.internalServerError.tr());
+        return Failure(ResponseMessage.internalServerError.tr());
       case DataSource.connectTimeout:
-        return Failure(ResponseCode.connectTimeout, ResponseMessage.connectTimeout.tr());
+        return Failure(ResponseMessage.connectTimeout.tr());
       case DataSource.cancel:
-        return Failure(ResponseCode.cancel, ResponseMessage.cancel.tr());
+        return Failure(ResponseMessage.cancel.tr());
       case DataSource.receiveTimeout:
-        return Failure(ResponseCode.receiveTimeout, ResponseMessage.receiveTimeout.tr());
+        return Failure(ResponseMessage.receiveTimeout.tr());
       case DataSource.sendTimeout:
-        return Failure(ResponseCode.sendTimeout, ResponseMessage.sendTimeout.tr());
+        return Failure(ResponseMessage.sendTimeout.tr());
       case DataSource.cacheError:
-        return Failure(ResponseCode.cacheError, ResponseMessage.cacheError.tr());
+        return Failure(ResponseMessage.cacheError.tr());
       case DataSource.noInternetConnection:
-        return Failure(ResponseCode.noInternetConnection, ResponseMessage.noInternetConnection.tr());
+        return Failure(ResponseMessage.noInternetConnection.tr());
       case DataSource.defaultError:
-        return Failure(ResponseCode.defaultError, ResponseMessage.defaultError.tr());
+        return Failure(ResponseMessage.defaultError.tr());
       case DataSource.badCertificate:
-        return Failure(ResponseCode.badCertificate, ResponseMessage.badCertificate.tr());
+        return Failure(ResponseMessage.badCertificate.tr());
       case DataSource.networkAuthenticationRequired:
-        return Failure(ResponseCode.networkAuthenticationRequired, ResponseMessage.networkAuthenticationRequired.tr());
+        return Failure(ResponseMessage.networkAuthenticationRequired.tr());
       default:
-        return Failure(ResponseCode.defaultError, ResponseMessage.defaultError.tr());
+        return Failure(ResponseMessage.defaultError.tr());
     }
   }
 }
