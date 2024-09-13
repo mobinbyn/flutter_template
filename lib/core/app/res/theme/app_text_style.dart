@@ -51,27 +51,125 @@ class AppTextStyle {
     double? spacing,
     double? height,
   }) {
-    return TextStyle(fontSize: fontSize, fontFamily: fontFamily, color: color, fontWeight: fontWeight, wordSpacing: spacing, height: height);
+    return TextStyle(
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+      color: color,
+      fontWeight: fontWeight,
+      wordSpacing: spacing,
+      height: height,
+    );
   }
 
   /// Thin text style
-  static TextStyle getThinStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.thin, color: color, height: height);
+  static TextStyle getThinStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.thin,
+        color: color,
+        height: height,
+      );
 
   /// Light text style
-  static TextStyle getLightStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.light, color: color, height: height);
+  static TextStyle getLightStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.light,
+        color: color,
+        height: height,
+      );
 
   /// Regular style
-  static TextStyle getRegularStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.regular, color: color, height: height);
+  static TextStyle getRegularStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.regular,
+        color: color,
+        height: height,
+      );
 
   /// Semi bold text style
-  static TextStyle getSemiBoldStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.semiBold, color: color, height: height);
+  static TextStyle getSemiBoldStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.semiBold,
+        color: color,
+        height: height,
+      );
 
   /// Bold text style
-  static TextStyle getBoldStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.bold, color: color, height: height);
+  static TextStyle getBoldStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.bold,
+        color: color,
+        height: height,
+      );
 
   /// Extra bold text style
-  static TextStyle getExtraBoldStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.extraBold, color: color, height: height);
+  static TextStyle getExtraBoldStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.extraBold,
+        color: color,
+        height: height,
+      );
 
   /// Black text style
-  static TextStyle getBlackStyle({required double fontSize, Color? color, double? spacing, double? height}) => _getTextStyle(fontSize: fontSize, fontFamily: AppFontFamily.fontFamily, fontWeight: AppFontWeight.black, color: color, height: height);
+  static TextStyle getBlackStyle({
+    required double fontSize,
+    String? fontFamily,
+    Color? color,
+    double? spacing,
+    double? height,
+  }) =>
+      _getTextStyle(
+        fontSize: fontSize,
+        fontFamily: fontFamily ?? AppFontFamily.fontFamily,
+        fontWeight: AppFontWeight.black,
+        color: color,
+        height: height,
+      );
 }
