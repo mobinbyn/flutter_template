@@ -15,12 +15,9 @@ class AppInputTheme {
     prefixIconColor: AppPalettes.neutral[70],
     suffixIconColor: AppPalettes.neutral[70],
     contentPadding: AppPadding.textField,
-    hintStyle: AppTextStyle.getRegularStyle(
-        fontSize: AppFontSize.s16, color: AppPalettes.neutral[70]!),
-    labelStyle: AppTextStyle.getRegularStyle(
-        fontSize: AppFontSize.s16, color: AppPalettes.neutral[70]),
-    floatingLabelStyle: AppTextStyle.getSemiBoldStyle(
-        fontSize: AppFontSize.s12, color: AppPalettes.black),
+    hintStyle: AppTextStyle.getRegularStyle(fontSize: AppFontSize.s16, color: AppPalettes.neutral[70]!),
+    labelStyle: AppTextStyle.getRegularStyle(fontSize: AppFontSize.s16, color: AppPalettes.neutral[70]),
+    floatingLabelStyle: AppTextStyle.getSemiBoldStyle(fontSize: AppFontSize.s12, color: AppPalettes.black),
     errorStyle: AppTextStyle.getRegularStyle(
       fontSize: AppFontSize.s12,
       color: AppPalettes.tertiary[30]!,

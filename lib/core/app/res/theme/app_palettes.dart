@@ -12,8 +12,7 @@ class AppPalettes {
   static const Color lightYellow = Color(0xFFBFB6B2);
 
   /// Primary palette
-  static const MaterialColor primary =
-      MaterialColor(_greenPrimaryValue, <int, Color>{
+  static const MaterialColor primary = MaterialColor(_greenPrimaryValue, <int, Color>{
     0: Color(0xFF052E27),
     10: Color(0xFF0A5245),
     20: Color(0xFF0A5245),
@@ -26,7 +25,7 @@ class AppPalettes {
     90: Color(0xFF9ED4CA),
     95: Color(0xFFB6DFD7),
     99: Color(0xFFD3EBE7),
-    100: Color(0xFFF4FAF9)
+    100: Color(0xFFF4FAF9),
   });
 
   /// Secondary palette
@@ -45,7 +44,7 @@ class AppPalettes {
       90: Color(0xFFFADFA7),
       95: Color(0xFFFBE8BF),
       99: Color(0xFFFCF1D7),
-      100: Color(0xFFFEFAF2)
+      100: Color(0xFFFEFAF2),
     },
   );
 
@@ -65,7 +64,7 @@ class AppPalettes {
       90: Color(0xFFFBB1AE),
       95: Color(0xFFFCC7C5),
       99: Color(0xFFFDDCDB),
-      100: Color(0xFFFEF3F3)
+      100: Color(0xFFFEF3F3),
     },
   );
 
@@ -85,7 +84,7 @@ class AppPalettes {
       90: Color(0xFFD4D4D4),
       95: Color(0xFFEBEBEB),
       99: Color(0xFFF8F8F8),
-      100: Color(0xFFFFFFFF)
+      100: Color(0xFFFFFFFF),
     },
   );
 }
