@@ -7,5 +7,6 @@
 [*] typedef for failure class
 [] handle supabase error
 [] supabase Api provider
+[] notification service
 
 // TODO: List for start your new project

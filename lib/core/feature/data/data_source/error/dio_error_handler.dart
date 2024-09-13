@@ -17,19 +17,12 @@ class DioErrorHandler implements Exception {
     }
   }
 
-  DioErrorHandler.noInternetConnection() {
-    failure = DataSource.noInternetConnection.getFailure();
-  }
+  // DioErrorHandler.noInternetConnection() {
+  //   failure = DataSource.noInternetConnection.getFailure();
+  // }
 
   Failure _handleError(DioException error) {
     switch (error.type) {
-      case DioExceptionType.connectionTimeout:
-      case DioExceptionType.connectionError:
-        return DataSource.connectTimeout.getFailure();
-      case DioExceptionType.sendTimeout:
-        return DataSource.sendTimeout.getFailure();
-      case DioExceptionType.receiveTimeout:
-        return DataSource.receiveTimeout.getFailure();
       case DioExceptionType.badResponse:
         // When response code exist
         switch (error.response?.statusCode) {
@@ -47,6 +40,13 @@ class DioErrorHandler implements Exception {
             return DataSource.networkAuthenticationRequired.getFailure();
         }
         return DataSource.defaultError.getFailure();
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.connectionError:
+        return DataSource.connectTimeout.getFailure();
+      case DioExceptionType.sendTimeout:
+        return DataSource.sendTimeout.getFailure();
+      case DioExceptionType.receiveTimeout:
+        return DataSource.receiveTimeout.getFailure();
       case DioExceptionType.cancel:
         return DataSource.cancel.getFailure();
       case DioExceptionType.badCertificate:
