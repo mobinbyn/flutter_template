@@ -18,13 +18,21 @@ Future<void> initAppModule() async {
   /// Global Navigator Key
   locator.registerSingleton<AppNavKey>(AppNavKey());
 
+  /// Network info service & Bloc
+  locator.registerSingleton<INetworkInfoService>(NetworkInfoService(Connectivity()));
+  locator.registerSingleton<NetworkBloc>(NetworkBloc(locator()));
+
   /// State manager (Dialog Manager)
   locator.registerSingleton<LoadingManager>(LoadingManager());
   locator.registerSingleton<FailedManager>(FailedManager());
   locator.registerSingleton<DialogManager>(DialogManager(locator<AppNavKey>().globalNavigationKey, locator(), locator()));
 
   /// Navigation Service
-  locator.registerSingleton<NavigationService>(NavigationService(locator<AppNavKey>().globalNavigationKey));
+  locator.registerSingleton<INavigationService>(NavigationService(locator<AppNavKey>().globalNavigationKey));
+
+  /// Authentication Service & Bloc
+  locator.registerSingleton<IAuthenticationService>(AuthenticationService(locator(), locator(), locator(), locator()));
+  locator.registerSingleton<AuthBloc>(AuthBloc(locator()));
 
   /// Theme Cubit
   // locator.registerSingleton<ThemesCubit>(ThemesCubit(locator()));
@@ -32,11 +40,8 @@ Future<void> initAppModule() async {
   /// Dio Wrapper
   locator.registerSingleton<DioWrapper>(DioWrapper());
 
-  /// Network info
-  // locator.registerSingleton<NetworkInfo>(NetworkInfoImpl(Connectivity()));
-
   //********************************************************************
-  //* Auth Group
+  //* Sign In Group
   // *******************************************************************/
   authInitModule();
 }

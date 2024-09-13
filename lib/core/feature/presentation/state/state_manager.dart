@@ -27,7 +27,7 @@ class DialogManager {
         context: _globalContext,
         barrierColor: const Color.fromARGB(128, 0, 0, 0),
         builder: (context) => const CircularProgressIndicator(),
-      );
+      ).whenComplete(() => _isLoadingShown = false);
     } else if (_isLoadingShown) {
       _isLoadingShown = false;
       _dismissDialog(_globalContext);
@@ -42,7 +42,7 @@ class DialogManager {
         builder: (context) {
           return Container();
         },
-      );
+      ).whenComplete(() => _isFailedShown = false);
     } else if (_isFailedShown) {
       _isFailedShown = false;
       _dismissDialog(_globalContext);
@@ -86,10 +86,4 @@ class FailedManager {
   void _setState(bool isFailed, {Failure? failure, void Function()? retryAction}) {
     _failedStreamController.add((isFailed, failure: failure, retryAction: retryAction));
   }
-}
-
-class FailedStreamType {
-  bool isFailed;
-  Failure? failure;
-  FailedStreamType({required this.isFailed, this.failure});
 }

@@ -68,7 +68,7 @@ class AuthenticationService extends IAuthenticationService with LogMixin {
     logger.d('Start logout process');
     // Delete user secure storage
     await _secureStorage.clearAll();
-    _appPreferences.setIsUserLoggedIn(false);
+    _appPreferences.logout();
     // Navigate to home screen
     _navigationService.navigateToReplacementAll(route);
   }
@@ -80,7 +80,7 @@ class AuthenticationService extends IAuthenticationService with LogMixin {
 
   @override
   Future<void> updateIsSignedIn() async {
-    _appPreferences.setIsUserLoggedIn(true);
+    _appPreferences.setIsUserLoggedIn();
   }
 
   @override

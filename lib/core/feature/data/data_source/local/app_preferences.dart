@@ -36,8 +36,8 @@ class AppPreferences {
     return _sharedPreferences.getBool(preferencesKeyOnboardingScreen) ?? false;
   }
 
-  void setIsUserLoggedIn(bool isUserLoggedIn) {
-    _sharedPreferences.setBool(preferencesKeyIsUserLoggedIn, isUserLoggedIn);
+  void setIsUserLoggedIn() {
+    _sharedPreferences.setBool(preferencesKeyIsUserLoggedIn, true);
   }
 
   bool isUserLoggedIn() {
