@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/core/app/res/strings/app_language.dart';
 import 'package:flutter_template/core/app/res/strings/app_strings.dart';
 import 'package:flutter_template/core/app/res/theme/app_button_theme.dart';
 
@@ -43,11 +44,15 @@ class _TestPageState extends State<TestPage> {
                   child: Text(AppStrings.success.tr()),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.setLocale(englishLocal);
+                  },
                   child: Text(AppStrings.success.tr()),
                 ),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.setLocale(turkishLocal);
+                  },
                   style: AppButtonTheme.neutralOutline,
                   child: Text(AppStrings.success.tr()),
                 ),

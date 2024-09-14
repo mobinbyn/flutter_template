@@ -1,5 +1,6 @@
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_template/core/app/service/interface/i_navigation_service.dart';
 import 'package:flutter_template/core/feature/data/data_source/local/app_preferences.dart';
 import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
 
@@ -10,13 +11,12 @@ import '../../feature/data/data_source/remote/safe_call_extensions.dart';
 import '../../feature/data/model/token_model.dart';
 import '../utility/logging_mixin.dart';
 import 'interface/i_authentication_service.dart';
-import 'navigation_service.dart';
 
 class AuthenticationService extends IAuthenticationService with LogMixin {
   final DioWrapper _dio;
   final AppSecureStorage _secureStorage;
   final AppPreferences _appPreferences;
-  final NavigationService _navigationService;
+  final INavigationService _navigationService;
 
   AuthenticationService(
     this._dio,
