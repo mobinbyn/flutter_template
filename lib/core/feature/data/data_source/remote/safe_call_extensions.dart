@@ -9,7 +9,7 @@ import '../error/response_code.dart';
 import 'request_type.dart';
 
 extension DioExtensions on Dio {
-  static Logger logger = Logger(printer: CustomPrinter('DioExtensions'));
+  static Logger logger = Logger(printer: CustomPrinter(className: 'DioExtensions(safeCall)'));
 
   /// A method to perform a safe HTTP call using Dio, handling success and errors.
   ///
