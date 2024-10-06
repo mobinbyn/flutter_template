@@ -5,63 +5,67 @@ import 'app_input_theme.dart';
 import 'app_palettes.dart';
 import 'app_text_style.dart';
 
-// TODO: The template value
+// TODO: Template value to be defined later
+// The AppThemes class is used to manage theme configurations for the app
 class AppThemes {
+  // Private constructor to prevent object creation
   AppThemes._();
 
-  /// Light theme config
+  /// Light theme configuration
+  /// This sets up the light theme for the app using various customized elements
   static ThemeData get lightTheme => ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.light,
-        scaffoldBackgroundColor: AppPalettes.neutral[99],
+        useMaterial3: true, // Enables Material Design 3 components
+        brightness: Brightness.light, // Defines the overall theme brightness as light
+        scaffoldBackgroundColor: AppPalettes.neutral[99], // Sets the background color for Scaffold
         colorScheme: ColorScheme(
-          background: AppPalettes.neutral[100]!,
-          brightness: Brightness.light,
-          primary: AppPalettes.primary,
-          onPrimary: AppPalettes.white,
-          secondary: AppPalettes.secondary,
-          onSecondary: AppPalettes.black,
-          error: AppPalettes.tertiary,
-          onError: AppPalettes.white,
-          onBackground: AppPalettes.black,
-          surface: AppPalettes.neutral[100]!,
-          onSurface: AppPalettes.black,
+          background: AppPalettes.neutral[100]!, // Background color
+          brightness: Brightness.light, // Light mode color scheme
+          primary: AppPalettes.primary, // Primary color of the app
+          onPrimary: AppPalettes.white, // Text color on primary color elements
+          secondary: AppPalettes.secondary, // Secondary color
+          onSecondary: AppPalettes.black, // Text color on secondary color elements
+          error: AppPalettes.tertiary, // Error color (typically red)
+          onError: AppPalettes.white, // Text color on error color elements
+          onBackground: AppPalettes.black, // Text color on background color elements
+          surface: AppPalettes.neutral[100]!, // Surface color
+          onSurface: AppPalettes.black, // Text color on surface elements
         ),
 
-        /// Button theme
-        buttonTheme: ButtonThemeData(),
-        outlinedButtonTheme: AppButtonTheme.primaryOutline,
-        filledButtonTheme: AppButtonTheme.primary,
-        textButtonTheme: AppButtonTheme.textButton,
-        iconButtonTheme: IconButtonThemeData(),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(),
+        /// Button themes
+        buttonTheme: ButtonThemeData(), // General button theme (legacy)
+        outlinedButtonTheme: AppButtonTheme.primaryOutline, // Theme for outlined buttons
+        filledButtonTheme: AppButtonTheme.primary, // Theme for filled buttons
+        textButtonTheme: AppButtonTheme.textButton, // Theme for text buttons
+        iconButtonTheme: IconButtonThemeData(), // Theme for icon buttons
+        floatingActionButtonTheme: FloatingActionButtonThemeData(), // Theme for FAB
 
-        /// Input decoration theme (Text form field)
-        inputDecorationTheme: AppInputTheme.textFilledTheme,
+        /// Input decoration theme (Text form fields)
+        inputDecorationTheme: AppInputTheme.textFilledTheme, // Custom input field styling
 
         /// Text theme
-        textTheme: AppTextTheme.lightTextTheme,
-        fontFamily: AppFontFamily.fontFamily,
+        textTheme: AppTextTheme.lightTextTheme, // Custom text styles for light theme
+        fontFamily: AppFontFamily.fontFamily, // Custom font family
 
-        iconTheme: IconThemeData(color: AppPalettes.primary),
-        actionIconTheme: ActionIconThemeData(),
-        appBarTheme: AppBarTheme(),
-        badgeTheme: BadgeThemeData(),
-        bannerTheme: MaterialBannerThemeData(),
-        bottomAppBarTheme: BottomAppBarTheme(),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(),
-        bottomSheetTheme: BottomSheetThemeData(),
-        toggleButtonsTheme: ToggleButtonsThemeData(),
-        chipTheme: ChipThemeData(),
-        checkboxTheme: CheckboxThemeData(),
-        cardTheme: CardTheme(),
-        dialogTheme: DialogTheme(),
-        datePickerTheme: DatePickerThemeData(),
-        dividerTheme: DividerThemeData(),
-        drawerTheme: DrawerThemeData(),
-        dropdownMenuTheme: DropdownMenuThemeData(),
+        /// Icon theme
+        iconTheme: IconThemeData(color: AppPalettes.primary), // Icon color
+        actionIconTheme: ActionIconThemeData(), // Custom action icon theme
+        appBarTheme: AppBarTheme(), // Custom AppBar theme
+        badgeTheme: BadgeThemeData(), // Custom Badge theme
+        bannerTheme: MaterialBannerThemeData(), // Custom Banner theme
+        bottomAppBarTheme: BottomAppBarTheme(), // Custom BottomAppBar theme
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(), // Custom BottomNavigationBar theme
+        bottomSheetTheme: BottomSheetThemeData(), // Custom BottomSheet theme
+        toggleButtonsTheme: ToggleButtonsThemeData(), // Custom ToggleButtons theme
+        chipTheme: ChipThemeData(), // Custom Chip theme
+        checkboxTheme: CheckboxThemeData(), // Custom Checkbox theme
+        cardTheme: CardTheme(), // Custom Card theme
+        dialogTheme: DialogTheme(), // Custom Dialog theme
+        datePickerTheme: DatePickerThemeData(), // Custom DatePicker theme
+        dividerTheme: DividerThemeData(), // Custom Divider theme
+        drawerTheme: DrawerThemeData(), // Custom Drawer theme
+        dropdownMenuTheme: DropdownMenuThemeData(), // Custom DropdownMenu theme
 
-        /// Chip Theme
+        // Uncomment the following block for custom chip styling
         // chipTheme: ChipThemeData(
         //   backgroundColor: AppPalettes.white,
         //   selectedColor: AppPalettes.white,
@@ -71,6 +75,7 @@ class AppThemes {
         //   labelPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
         // ),
 
+        // Uncomment the following block for custom checkbox styling
         // checkboxTheme: CheckboxThemeData(
         //     shape: RoundedRectangleBorder(
         //       borderRadius: BorderRadius.circular(4.r),
@@ -79,6 +84,6 @@ class AppThemes {
         //         (states) => AppPalettes.primary[50]!)),
       );
 
-  /// Dark theme config
+  /// Dark theme configuration (currently not defined)
   static ThemeData get darkTheme => ThemeData();
 }
