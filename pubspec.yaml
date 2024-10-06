@@ -47,9 +47,24 @@ dependencies:
 
   ## Utility
   logger: ^2.3.0
+  flutter_dotenv: ^5.1.0
   easy_localization: ^3.0.7
   dart_jsonwebtoken: ^2.14.0
   connectivity_plus: ^6.0.5
+
+  ## Uncomment the following lines if you want to use the plugin
+  # flutter_svg: ^2.0.9
+  # lottie: ^2.7.0
+  # dio: ^5.3.3
+  # persian_number_utility: ^1.1.3
+  # ## Maps
+  # flutter_map_marker_cluster: ^1.3.4
+  # flutter_typeahead: ^5.0.1
+  # dotted_border: ^2.1.0
+  # flutter_slidable: ^3.0.1
+  # awesome_rating: ^0.0.4
+  # uuid: ^4.4.0
+  # supabase_flutter: ^2.6.0
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +72,9 @@ dev_dependencies:
 
   # Recommended linting rules for good coding practices.
   flutter_lints: ^3.0.0
+  # build_runner: ^2.4.6
+  # test: ^1.24.3
+  # bloc_test: ^9.1.5
 
 flutter:
   # Ensures that Material Icons font is included in your app.
@@ -68,17 +86,32 @@ flutter:
     - assets/animations/
     - assets/images/
     - assets/svgs/
+    - .env
 
   # Custom fonts can be added in this section if needed.
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: YekanBakh
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+  #       - asset: assets/fonts/YekanBakh-Thin.ttf
+  #         weight: 200
+  #       - asset: assets/fonts/YekanBakh-Light.ttf
+  #         weight: 300
+  #       - asset: assets/fonts/YekanBakh-Regular.ttf
+  #         weight: 400
+  #       - asset: assets/fonts/YekanBakh-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/YekanBakh-Bold.ttf
   #         weight: 700
+  #       - asset: assets/fonts/YekanBakh-ExtraBold.ttf
+  #         weight: 800
+  #       - asset: assets/fonts/YekanBakh-Black.ttf
+  #         weight: 900
+  #       # - asset: assets/fonts/YekanBakh-ExtraBlack.ttf
+  #   # Icon
+  #   - family: IconlyBold
+  #     fonts:
+  #       - asset: assets/fonts/Iconly-Bold.ttf
+  #   - family: IconlyOutline
+  #     fonts:
+  #       - asset: assets/fonts/Iconly-Outline.ttf
