@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'package:flutter_template/core/app/res/strings/app_language.dart';
 import 'package:flutter_template/core/feature/presentation/state/state_manager.dart';
@@ -24,6 +25,9 @@ Future<void> initApp() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Future.wait([
+    /// Init screen util
+    ScreenUtil.ensureScreenSize(),
+
     /// Easy Localization
     EasyLocalization.ensureInitialized(),
 

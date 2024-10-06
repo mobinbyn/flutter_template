@@ -3,7 +3,7 @@
 [*] Network observer cubit or bloc
 [*] update state manager
 [] Auth bloc
-[] language cubit
+[-] language cubit
 [*] typedef for failure class
 [] handle supabase error
 [] supabase Api provider
