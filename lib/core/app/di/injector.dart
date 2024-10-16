@@ -31,7 +31,7 @@ Future<void> initAppModule() async {
   locator.registerSingleton<INavigationService>(NavigationService(locator<AppNavKey>().globalNavigationKey));
 
   /// Theme Cubit
-  // locator.registerSingleton<ThemesCubit>(ThemesCubit(locator()));
+  locator.registerLazySingleton<ThemesCubit>(() => ThemesCubit(locator())); // This cubit must be initialized in lazy mode.
 
   /// Dio Wrapper
   locator.registerSingleton<DioWrapper>(DioWrapper());

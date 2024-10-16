@@ -5,13 +5,12 @@ import 'package:flutter_template/core/feature/data/data_source/local/app_prefere
 
 class ThemesCubit extends Cubit<ThemeData> {
   final AppPreferences _appPreferences;
-  ThemesCubit(this._appPreferences) : super(AppThemes.lightTheme) {
+  ThemesCubit(this._appPreferences) : super(ThemeMode.system == ThemeMode.dark ? AppThemes().darkTheme : AppThemes().lightTheme) {
     _getThemeFromPrefs();
   }
 
   void toggleTheme() {
-    state.brightness == Brightness.light ? Brightness.dark : Brightness.light;
-    emit(state);
+    emit(state.brightness == Brightness.light ? AppThemes().darkTheme : AppThemes().lightTheme);
     _saveThemeToPrefs(brightness: state.brightness);
   }
 
@@ -21,7 +20,7 @@ class ThemesCubit extends Cubit<ThemeData> {
 
   Future<void> _getThemeFromPrefs() async {
     bool isDark = _appPreferences.isDark();
-    final savedTheme = isDark ? AppThemes.darkTheme : AppThemes.lightTheme;
+    final savedTheme = isDark ? AppThemes().darkTheme : AppThemes().lightTheme;
     emit(savedTheme);
   }
 }

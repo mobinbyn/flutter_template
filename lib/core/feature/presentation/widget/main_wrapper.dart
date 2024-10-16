@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter_template/core/feature/presentation/bloc/network/network_bloc.dart';
+import 'package:flutter_template/core/feature/presentation/cubit/themes_cubit.dart';
 
 import '../../../app/di/injector_index.dart';
-import '../../../app/res/theme/app_theme.dart';
 import '../../../app/res/const/app_nav_key.dart';
 import '../../../app/routes/routes.dart';
 import '../../../app/routes/routes_index.dart';
@@ -20,6 +20,7 @@ class MainWrapper extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => locator<NetworkBloc>()..add(NetworkObserve()), lazy: false),
+        BlocProvider(create: (_) => locator<ThemesCubit>(), lazy: true),
         BlocProvider(create: (_) => locator<AuthBloc>(), lazy: false),
       ],
       child: MaterialApp(
@@ -36,9 +37,13 @@ class MainWrapper extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
           );
-          return Theme(
-            data: AppThemes.lightTheme,
-            child: child!,
+          return BlocBuilder<ThemesCubit, ThemeData>(
+            builder: (context, state) {
+              return Theme(
+                data: state,
+                child: child!,
+              );
+            },
           );
         },
       ),

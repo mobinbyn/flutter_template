@@ -6,7 +6,7 @@ class RouteGenerator {
       case AppRoutes.splashRoute:
         return MaterialPageRoute(
           builder: (context) {
-            return const TestPage();
+            return const UiKitPreview();
           },
         );
       default:
