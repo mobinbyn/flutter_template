@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/app/res/const/app_dimens.dart';
 import 'package:flutter_template/core/app/res/const/app_font.dart';
-import 'package:flutter_template/core/app/res/theme/app_palettes.dart';
+import 'package:flutter_template/core/app/res/theme/color/app_palettes.dart';
 import 'package:flutter_template/core/app/res/theme/app_text_style.dart';
 
-import '../i_app_theme.dart';
+import '../interface/i_app_theme.dart';
 
 class AppInputTheme implements IAppTheme<InputDecorationTheme> {
   // Singleton instance

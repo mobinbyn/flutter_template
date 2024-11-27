@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/core/app/res/theme/interface/i_app_theme_strategy.dart';
 import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter_template/core/feature/presentation/bloc/network/network_bloc.dart';
 import 'package:flutter_template/core/feature/presentation/cubit/themes_cubit.dart';
@@ -37,10 +38,10 @@ class MainWrapper extends StatelessWidget {
             minTextAdapt: true,
             splitScreenMode: true,
           );
-          return BlocBuilder<ThemesCubit, ThemeData>(
+          return BlocBuilder<ThemesCubit, IAppThemeStrategy<ThemeData>>(
             builder: (context, state) {
               return Theme(
-                data: state,
+                data: state.theme!,
                 child: child!,
               );
             },

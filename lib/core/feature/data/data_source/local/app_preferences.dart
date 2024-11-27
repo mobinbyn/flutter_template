@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppPreferences {
   static const String preferencesKeyLang = 'PREF_KEY_LANG';
-  static const String preferencesKeyIsDark = 'PREF_KEY_IS_DARK';
+  static const String preferencesKeyThemeMode = 'PREF_KEY_THEME_MODE';
   static const String preferencesKeyIsUserLoggedIn = 'PREF_KEY_IS_USER_LOGGED_IN';
   static const String preferencesKeyOnboardingScreen = 'PREF_KEY_ONBOARDING_SCREEN';
 
@@ -20,12 +20,12 @@ class AppPreferences {
     }
   }
 
-  void hasDark(bool isDark) async {
-    _sharedPreferences.setBool(preferencesKeyIsDark, isDark);
+  void setTheme(String themeMode) async {
+    _sharedPreferences.setString(preferencesKeyThemeMode, themeMode);
   }
 
-  bool isDark() {
-    return _sharedPreferences.getBool(preferencesKeyIsDark) ?? false;
+  String getTheme() {
+    return _sharedPreferences.getString(preferencesKeyThemeMode) ?? '';
   }
 
   void setOnBoardingScreenViewed() {

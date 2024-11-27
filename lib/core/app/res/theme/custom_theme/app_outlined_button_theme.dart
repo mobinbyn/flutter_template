@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../i_app_theme.dart';
+import '../interface/i_app_theme.dart';
 
 class AppOutlinedButtonTheme implements IAppTheme<OutlinedButtonThemeData> {
   // Singleton instance
@@ -16,7 +16,7 @@ class AppOutlinedButtonTheme implements IAppTheme<OutlinedButtonThemeData> {
 
   // Implementations of the IAppTheme interface
   @override
-  OutlinedButtonThemeData get lightTheme => const OutlinedButtonThemeData(
+  OutlinedButtonThemeData? get lightTheme => const OutlinedButtonThemeData(
         style: ButtonStyle(
           textStyle: null,
           backgroundColor: null,
@@ -44,7 +44,7 @@ class AppOutlinedButtonTheme implements IAppTheme<OutlinedButtonThemeData> {
       );
 
   @override
-  OutlinedButtonThemeData get darkTheme => const OutlinedButtonThemeData(
+  OutlinedButtonThemeData? get darkTheme => const OutlinedButtonThemeData(
         style: ButtonStyle(
           textStyle: null,
           backgroundColor: null,

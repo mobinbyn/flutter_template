@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../i_app_theme.dart';
+import '../interface/i_app_theme.dart';
 
 class AppChipTheme implements IAppTheme<ChipThemeData> {
   // Singleton instance
