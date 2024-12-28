@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/feature/domain/entity/state_renderer_type.dart';
+import 'package:flutter_template/core/shared/domain/entity/state_renderer_type.dart';
 
 import '../../../domain/entity/flow_state.dart';
 
@@ -34,8 +34,6 @@ extension FlowStateExtension on FlowState {
       case StateRendererType.emptyScreenState:
       case StateRendererType.idle:
         return screenContentBody;
-      default:
-        return Container();
     }
   }
 }

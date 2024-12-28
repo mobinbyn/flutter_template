@@ -5,6 +5,7 @@ class RouteGenerator {
     switch (routeSettings.name) {
       case AppRoutes.splashRoute:
         return MaterialPageRoute(
+          settings: RouteSettings(name: routeSettings.name),
           builder: (context) {
             return const UiKitPreview();
           },

@@ -5,7 +5,7 @@ import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'package:flutter_template/core/app/res/strings/app_language.dart';
 import 'package:flutter_template/core/app/res/strings/app_strings.dart';
 import 'package:flutter_template/core/app/utility/sub_extension/context/context_theme_extension.dart';
-import 'package:flutter_template/core/feature/presentation/cubit/themes_cubit.dart';
+import 'package:flutter_template/core/shared/presentation/cubit/themes_cubit.dart';
 
 class UiKitPreview extends StatefulWidget {
   const UiKitPreview({super.key});

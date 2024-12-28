@@ -9,4 +9,15 @@
 [] supabase Api provider
 [] notification service
 
+[] Test Coverage test_cov_console
+[] Test mockito
+[] Device Preview
+[] Dio cancel token
+[*] Dio custom log interceptor
+[] Github action
+
+
+  # Photo view to view image and control it
+  photo_view: ^0.14.0
+
 // TODO: List for start your new project

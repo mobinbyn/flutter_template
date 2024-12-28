@@ -4,7 +4,7 @@ import 'package:flutter_template/core/app/res/theme/app_dark_theme.dart';
 import 'package:flutter_template/core/app/res/theme/app_light_theme.dart';
 import 'package:flutter_template/core/app/res/theme/app_theme_factory.dart';
 import 'package:flutter_template/core/app/res/theme/interface/i_app_theme_strategy.dart';
-import 'package:flutter_template/core/feature/data/data_source/local/app_preferences.dart';
+import 'package:flutter_template/core/shared/data/data_source/local/app_preferences.dart';
 
 class ThemesCubit extends Cubit<IAppThemeStrategy<ThemeData>> {
   final AppPreferences _appPreferences;

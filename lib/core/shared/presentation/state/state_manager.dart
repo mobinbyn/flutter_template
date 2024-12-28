@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/feature/data/data_source/error/failure.dart';
+import 'package:flutter_template/core/shared/data/data_source/error/failure.dart';
 
 /// A class to manage dialogs in the app, such as loading indicators and failure messages.
 /// It listens to streams from [LoadingManager] and [FailedManager] to show or hide dialogs.

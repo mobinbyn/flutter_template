@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'package:flutter_template/core/app/service/interface/i_network_info_service.dart';
-import 'package:flutter_template/core/feature/data/data_source/error/data_source_enum.dart';
-import 'package:flutter_template/core/feature/data/data_source/error/data_source_extension.dart';
-import 'package:flutter_template/core/feature/presentation/state/state_manager.dart';
+import 'package:flutter_template/core/shared/data/data_source/error/data_source_enum.dart';
+import 'package:flutter_template/core/shared/data/data_source/error/data_source_extension.dart';
+import 'package:flutter_template/core/shared/presentation/state/state_manager.dart';
 
 part 'network_event.dart';
 part 'network_state.dart';

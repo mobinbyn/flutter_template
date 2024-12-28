@@ -12,7 +12,16 @@ mixin LogMixin {
     );
   }
 
+  /// Creates or returns a singleton logging instance.
+  Logger _logging() {
+    return Logger(
+      printer: CustomNetworkPrinter(),
+    );
+  }
+
   Logger get logger => _logger();
+
+  Logger get logging => _logging();
 }
 
 /// A custom printer for logging messages with additional formatting.
@@ -38,5 +47,14 @@ class CustomPrinter extends LogPrinter {
   /// Formats the log event time into a readable string.
   String _formatTime(DateTime time) {
     return '${time.hour}:${time.minute}:${time.second}';
+  }
+}
+
+class CustomNetworkPrinter extends LogPrinter {
+  @override
+  List<String> log(LogEvent event) {
+    return [
+      PrettyPrinter.defaultLevelColors[event.level]!('${event.level.name.toUpperCase()}: ${event.message}'),
+    ];
   }
 }

@@ -18,9 +18,9 @@ class AppCheckboxTheme implements IAppTheme<CheckboxThemeData> {
   @override
   CheckboxThemeData get lightTheme => CheckboxThemeData(
         mouseCursor: null,
-        fillColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.disabled)) {}
-          if (states.contains(MaterialState.selected)) {}
+        fillColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {}
+          if (states.contains(WidgetState.selected)) {}
         }),
         checkColor: null,
         overlayColor: null,

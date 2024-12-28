@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/feature/data/data_source/error/failure.dart';
-import 'package:flutter_template/core/feature/domain/entity/state_renderer_type.dart';
+import 'package:flutter_template/core/shared/data/data_source/error/failure.dart';
+import 'package:flutter_template/core/shared/domain/entity/state_renderer_type.dart';
 
 class StateRenderer<T> extends StatelessWidget {
   final StateRendererType stateRendererType;

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_template/core/feature/data/data_source/error/failure.dart';
-import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
+import 'package:flutter_template/core/shared/data/data_source/error/failure.dart';
+import 'package:flutter_template/core/shared/presentation/bloc/auth/auth_bloc.dart';
 
 typedef TokenPair = ({String accessToken, String? refreshToken});
 

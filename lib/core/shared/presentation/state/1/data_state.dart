@@ -1,4 +1,4 @@
-import 'package:flutter_template/core/feature/data/data_source/error/failure.dart';
+import 'package:flutter_template/core/shared/data/data_source/error/failure.dart';
 
 enum DataStateType {
   fetched,

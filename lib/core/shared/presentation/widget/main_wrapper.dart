@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/core/app/res/theme/interface/i_app_theme_strategy.dart';
-import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
-import 'package:flutter_template/core/feature/presentation/bloc/network/network_bloc.dart';
-import 'package:flutter_template/core/feature/presentation/cubit/themes_cubit.dart';
+import 'package:flutter_template/core/shared/presentation/bloc/auth/auth_bloc.dart';
+import 'package:flutter_template/core/shared/presentation/bloc/network/network_bloc.dart';
+import 'package:flutter_template/core/shared/presentation/cubit/themes_cubit.dart';
 
 import '../../../app/di/injector_index.dart';
 import '../../../app/res/const/app_nav_key.dart';

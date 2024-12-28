@@ -2,7 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'package:flutter_template/core/app/service/interface/i_network_info_service.dart';
 import 'package:flutter_template/core/app/utility/logging_mixin.dart';
-import 'package:flutter_template/core/feature/presentation/bloc/network/network_bloc.dart';
+import 'package:flutter_template/core/shared/presentation/bloc/network/network_bloc.dart';
 
 /// A service class that implements [INetworkInfoService] to provide
 /// information about the current network status.
@@ -66,9 +66,9 @@ class NetworkInfoService with LogMixin implements INetworkInfoService {
           locator<NetworkBloc>().add(const NetworkNotify(isConnected: true, connectionType: ConnectionType.other));
           break;
 
-        default:
-          // Unknown connection type
-          locator<NetworkBloc>().add(const NetworkNotify(isConnected: false, connectionType: ConnectionType.unknown));
+        // default:
+        //   // Unknown connection type
+        //   locator<NetworkBloc>().add(const NetworkNotify(isConnected: false, connectionType: ConnectionType.unknown));
       }
     });
   }

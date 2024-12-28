@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template/core/shared/data/data_source/remote/logger_interceptor.dart';
 
 import '../../../../app/di/injector_index.dart';
 import '../../../../app/res/const/app_constant.dart';
@@ -9,6 +10,7 @@ class DioWrapper {
   /// Creates a Dio instance with the specified options.
   Dio getDio({
     bool hasToken = false, // Flag to indicate if the Dio instance should include an authentication token.
+    bool logger = false, // Flag to enable/disable logging.
     Map<String, dynamic>? queryParameters, // Query parameters for the request.
     Map<String, dynamic>? extra, // Extra options for the request.
     Map<String, dynamic>? headers, // Custom headers for the request.
@@ -28,6 +30,11 @@ class DioWrapper {
       responseType: responseType,
       persistentConnection: persistentConnection,
     );
+
+    // Add interceptors for logging if required.
+    if (logger) {
+      dio.interceptors.add(LoggerInterceptor(requestBody: true, responseBody: true));
+    }
 
     // Add interceptors for authentication if required.
     if (hasToken) {

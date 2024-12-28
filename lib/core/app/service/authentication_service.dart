@@ -1,14 +1,14 @@
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_template/core/app/service/interface/i_navigation_service.dart';
-import 'package:flutter_template/core/feature/data/data_source/local/app_preferences.dart';
-import 'package:flutter_template/core/feature/presentation/bloc/auth/auth_bloc.dart';
+import 'package:flutter_template/core/shared/data/data_source/local/app_preferences.dart';
+import 'package:flutter_template/core/shared/presentation/bloc/auth/auth_bloc.dart';
 
-import '../../feature/data/data_source/error/failure.dart';
-import '../../feature/data/data_source/local/app_secure_storage.dart';
-import '../../feature/data/data_source/remote/dio_wrapper.dart';
-import '../../feature/data/data_source/remote/safe_call_extensions.dart';
-import '../../feature/data/model/token_model.dart';
+import '../../shared/data/data_source/error/failure.dart';
+import '../../shared/data/data_source/local/app_secure_storage.dart';
+import '../../shared/data/data_source/remote/dio_wrapper.dart';
+import '../../shared/data/data_source/remote/safe_call_extensions.dart';
+import '../../shared/data/model/token_model.dart';
 import '../utility/logging_mixin.dart';
 import 'interface/i_authentication_service.dart';
 

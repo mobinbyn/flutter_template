@@ -20,8 +20,6 @@ extension LanguageTypeExtension on LanguageType {
         return persian;
       case LanguageType.turkish:
         return turkish;
-      default:
-        return english;
     }
   }
 }

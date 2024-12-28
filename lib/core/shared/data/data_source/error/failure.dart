@@ -23,3 +23,11 @@ class Failure extends Equatable {
 class DefaultFailure extends Failure {
   const DefaultFailure() : super(ResponseMessage.defaultError); // Calls the parent class with a default message.
 }
+
+/// A subclass of [Failure] representing a cancel token failure case.
+/// Uses a cancel error message from [ResponseMessage].
+class CancelTokenFailure extends Failure {
+  final int? statusCode;
+
+  const CancelTokenFailure(super.errorMessage, this.statusCode);
+}

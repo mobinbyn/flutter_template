@@ -7,4 +7,6 @@ extension ThemeExtension on BuildContext {
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
 
   Color get disabledColor => Theme.of(this).disabledColor;
+
+  bool get isDark => Theme.of(this).brightness == Brightness.dark;
 }

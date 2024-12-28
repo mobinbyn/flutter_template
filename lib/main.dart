@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_template/core/app/di/injector_index.dart';
 import 'package:flutter_template/core/app/res/strings/app_language.dart';
-import 'package:flutter_template/core/feature/presentation/state/state_manager.dart';
-import 'core/feature/presentation/widget/main_wrapper.dart';
+import 'package:flutter_template/core/shared/presentation/state/state_manager.dart';
+import 'core/shared/presentation/widget/main_wrapper.dart';
 
 void main() async {
   /// Init app
