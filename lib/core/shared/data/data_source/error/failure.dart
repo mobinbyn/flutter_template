@@ -16,6 +16,11 @@ class Failure extends Equatable {
   /// Overrides [Equatable]'s props to include the message and metadata for comparison.
   @override
   List<Object> get props => [message, metadata!]; // Forces metadata to be non-null.
+
+  /// Overrides [Equatable]'s toString method to return the message.
+  /// This is useful for debugging purposes.
+  @override
+  String toString() => 'Failure: $message\nMetadata: $metadata';
 }
 
 /// A subclass of [Failure] representing a default failure case.
@@ -30,4 +35,11 @@ class CancelTokenFailure extends Failure {
   final int? statusCode;
 
   const CancelTokenFailure(super.errorMessage, this.statusCode);
+}
+
+/// A subclass of [Failure] representing a cache failure case.
+/// Uses a cache error message from [ResponseMessage].
+/// This is used when a cache operation fails.
+class CacheFailure extends Failure {
+  const CacheFailure() : super(ResponseMessage.cacheError);
 }
