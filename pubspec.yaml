@@ -22,20 +22,20 @@ dependencies:
   flutter_screenutil: ^5.9.3
 
   ## Dependency Injection
-  get_it: ^7.7.0
+  get_it: ^8.0.3
 
   ## Network (HTTP requests)
-  dio: ^5.4.3+1
+  dio: ^5.7.0
 
   ## State Management
   bloc: ^8.1.4
-  flutter_bloc: ^8.1.5
-  equatable: ^2.0.5
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.7
   dartz: ^0.10.1
 
   ## Local Storage
-  flutter_secure_storage: ^9.2.2
-  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.3
+  shared_preferences: ^2.3.5
 
   ## Map and Geo location
   # google_maps_flutter: ^2.6.1
@@ -47,11 +47,11 @@ dependencies:
   ## Firebase (If required, add the relevant packages)
 
   ## Utility
-  logger: ^2.3.0
-  flutter_dotenv: ^5.1.0
+  logger: ^2.5.0
+  flutter_dotenv: ^5.2.1
   easy_localization: ^3.0.7
-  dart_jsonwebtoken: ^2.14.0
-  connectivity_plus: ^6.0.5
+  dart_jsonwebtoken: ^2.14.2
+  connectivity_plus: ^6.1.1
 
   ## Uncomment the following lines if you want to use the plugin
 
@@ -74,8 +74,8 @@ dev_dependencies:
 
   # Recommended linting rules for good coding practices.
   flutter_lints: ^3.0.0
-  # build_runner: ^2.4.6
-  # test: ^1.24.3
+  build_runner: ^2.4.14
+  test: ^1.25.14
   # bloc_test: ^9.1.5
 
 flutter:

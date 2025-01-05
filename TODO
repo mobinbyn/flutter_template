@@ -1,5 +1,5 @@
 [*] add some page for testing theme
-[] Local manager (Cache)
+[*] Local manager (Cache)
 [*] Network observer cubit or bloc
 [*] update state manager
 [] Auth bloc
