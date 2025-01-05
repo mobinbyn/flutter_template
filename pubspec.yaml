@@ -75,7 +75,7 @@ dev_dependencies:
   # Recommended linting rules for good coding practices.
   flutter_lints: ^3.0.0
   build_runner: ^2.4.14
-  test: ^1.25.14
+  test: ^1.25.8
   # bloc_test: ^9.1.5
 
 flutter:
